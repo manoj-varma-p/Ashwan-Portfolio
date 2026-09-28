@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashwan Jakkinapally — Creative Video Editor & Graphic Designer</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Ashwan Jakkinapally — Creative Video Editor & Graphic Designer">
+  <meta name="description" content="Passionate video editor and graphic designer specializing in storytelling, motion graphics, documentary editing, and visual design.">
+  <meta name="author" content="Ashwan Jakkinapally">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ashwan Jakkinapally — Creative Video Editor & Graphic Designer">
+  <meta property="og:description" content="Transforming footage & designs into visual storytelling experiences.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#08080A',
+            surface: '#121216',
+            surfaceLight: '#1C1C23',
+            neon: '#00FF87',
+            gold: '#FFD700',
+            cyberBlue: '#00E5FF'
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          animation: {
+            'glow-pulse': 'glow 3s infinite ease-in-out',
+            'float': 'float 6s infinite ease-in-out'
+          },
+          keyframes: {
+            glow: {
+              '0%, 100%': { opacity: '0.4', filter: 'blur(20px)' },
+              '50%': { opacity: '0.8', filter: 'blur(35px)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #08080A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262630;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00FF87;
+    }
+
+    /* Custom Cursor */
+    .custom-cursor {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(0, 255, 135, 0.4);
+      border: 1px solid #00FF87;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s;
+      z-index: 9999;
+      mix-blend-mode: difference;
+    }
+
+    .custom-cursor-follower {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 255, 135, 0.2);
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease-out;
+      z-index: 9998;
+    }
+
+    /* Glassmorphism Styles */
+    .glass-card {
+      background: rgba(18, 18, 22, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 255, 135, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(0, 255, 135, 0.15);
+    }
+
+    .glass-nav {
+      background: rgba(8, 8, 10, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Gradient Text */
+    .text-gradient-neon {
+      background: linear-gradient(135deg, #FFFFFF 0%, #A5F3FC 50%, #00FF87 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Grid Overlay Background */
+    .bg-grid-pattern {
+      background-size: 50px 50px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Preloader Animation */
+    #preloader {
+      transition: opacity 0.8s ease-out, visibility 0.8s;
+    }
+
+    /* Reveal Animation Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .custom-cursor, .custom-cursor-follower {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-obsidian text-slate-200 font-sans antialiased selection:bg-neon selection:text-obsidian relative overflow-x-hidden">
+
+  <!-- Custom Cursor elements -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="custom-cursor-follower" id="cursor-follower"></div>
+
+  <!-- PRELOADER -->
+  <div id="preloader" class="fixed inset-0 z-[10000] bg-obsidian flex flex-col items-center justify-center select-none">
+    <div class="relative flex flex-col items-center">
+      <div class="font-syne text-3xl md:text-5xl font-extrabold tracking-wider text-white mb-6">
+        ASHWAN<span class="text-neon">.JAKKINAPALLY</span>
+      </div>
+      <div class="w-64 h-1 bg-surfaceLight rounded-full overflow-hidden relative mb-4">
+        <div id="loader-bar" class="h-full bg-gradient-to-r from-cyberBlue to-neon w-0 transition-all duration-100 ease-out"></div>
+      </div>
+      <div class="flex items-center justify-between w-64 text-xs font-mono text-slate-400">
+        <span id="loader-status">LOADING PORTFOLIO...</span>
+        <span id="loader-percent" class="text-neon font-bold">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-surfaceLight border border-white/10 flex items-center justify-center group-hover:border-neon transition-colors duration-300">
+          <span class="font-syne font-bold text-neon text-xl">A</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-syne font-bold text-lg tracking-tight text-white group-hover:text-neon transition-colors">
+            Ashwan Jakkinapally
+          </span>
+          <span class="text-[10px] font-mono tracking-widest text-slate-400 uppercase">Video Editor & Graphic Designer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+        <a href="#about" class="hover:text-neon transition-colors">About & Resume</a>
+        <a href="#portfolio" class="hover:text-neon transition-colors">Posters Showcase</a>
+        <a href="#services" class="hover:text-neon transition-colors">Services</a>
+        <a href="#contact" class="hover:text-neon transition-colors">Contact</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#contact" class="relative group overflow-hidden rounded-full p-[1px] focus:outline-none">
+          <span class="absolute inset-0 bg-gradient-to-r from-neon via-cyberBlue to-gold rounded-full opacity-70 group-hover:opacity-100 transition-opacity"></span>
+          <span class="relative px-6 py-2.5 rounded-full bg-obsidian text-white font-semibold text-xs tracking-wider uppercase transition-all duration-300 group-hover:bg-opacity-80 flex items-center gap-2">
+            <span>Contact Me</span>
+            <i class="fa-solid fa-arrow-right text-neon text-xs group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-neon p-2 focus:outline-none" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 top-20 bg-obsidian/95 backdrop-blur-2xl z-40 hidden flex-col p-6 space-y-6 md:hidden border-t border-white/10">
+      <nav class="flex flex-col space-y-4 font-syne text-xl">
+        <a href="#about" class="mobile-nav-link text-slate-200 hover:text-neon">01. About & Resume</a>
+        <a href="#portfolio" class="mobile-nav-link text-slate-200 hover:text-neon">02. Posters Showcase</a>
+        <a href="#services" class="mobile-nav-link text-slate-200 hover:text-neon">03. Services & Skills</a>
+        <a href="#contact" class="mobile-nav-link text-slate-200 hover:text-neon">04. Contact Me</a>
+      </nav>
+      <div class="pt-6 border-t border-white/10 flex flex-col gap-4">
+        <a href="#contact" class="mobile-nav-link w-full py-3 rounded-xl bg-neon text-obsidian font-extrabold text-center uppercase tracking-wider">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-20">
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-grid-pattern overflow-hidden">
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-neon/15 rounded-full blur-[120px] pointer-events-none animate-glow-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-[400px] h-[250px] bg-cyberBlue/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
+        
+        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card text-xs md:text-sm font-medium text-slate-300 border border-neon/30">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-neon"></span>
+          </span>
+          <span>Creative Video Editor & Graphic Designer</span>
+        </div>
+
+        <h1 class="font-syne text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white tracking-tight leading-[1.1] reveal">
+          Ashwan <span class="text-gradient-neon">Jakkinapally</span>
+        </h1>
+
+        <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 font-light leading-relaxed reveal">
+          Focused on story-driven editing & high-quality visual design. Specializing in Short-form, Documentary Style, Motion Graphics, and Poster Design.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 reveal">
+          <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full bg-neon text-obsidian font-extrabold text-sm uppercase tracking-wider hover:bg-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,135,0.4)] flex items-center justify-center gap-3">
+            <i class="fa-solid fa-layer-group text-xs"></i>
+            <span>View 9 Posters</span>
+          </a>
+          
+          <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card text-white font-semibold text-sm uppercase tracking-wider hover:bg-surfaceLight transition-all duration-300 flex items-center justify-center gap-2">
+            <span>Bio & Credentials</span>
+            <i class="fa-solid fa-arrow-down text-xs text-slate-400"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT & BIO DATA SECTION -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-surface/30 rounded-3xl my-12 border border-white/5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Bio Details & Contact Cards -->
+        <div class="lg:col-span-6 space-y-6 reveal">
+          <span class="text-neon font-mono text-xs uppercase tracking-widest">Profile & Resume</span>
+          <h2 class="font-syne text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+            Creative Storytelling with Visual Precision.
+          </h2>
+          <p class="text-slate-300 leading-relaxed font-light">
+            I am <strong class="text-white">Ashwan Jakkinapally</strong>, a passionate video editor and graphic designer with hands-on experience in video editing, motion graphics, and visual storytelling. Skilled in Premiere Pro, After Effects, Photoshop, Illustrator, and DaVinci Resolve, I focus on creating clean and compelling visual narratives.
+          </p>
+
+          <!-- Contact & Location Highlights -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl glass-card border-l-2 border-l-neon">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">Phone / Contact</span>
+              <p class="text-sm font-bold text-white mt-0.5">+91 834 117 0665</p>
+            </div>
+            <div class="p-4 rounded-xl glass-card border-l-2 border-l-cyberBlue">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">Email</span>
+              <p class="text-xs font-bold text-white mt-0.5 truncate">ashwanraojakkinapally@gmail.com</p>
+            </div>
+            <div class="p-4 rounded-xl glass-card border-l-2 border-l-gold">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">Instagram</span>
+              <p class="text-sm font-bold text-white mt-0.5">HUKUM@3133</p>
+            </div>
+            <div class="p-4 rounded-xl glass-card border-l-2 border-l-purple-500">
+              <span class="text-[10px] font-mono text-slate-400 uppercase">Location</span>
+              <p class="text-xs font-bold text-white mt-0.5">Beeramguda Kistareddypet, Telangana</p>
+            </div>
+          </div>
+
+          <!-- Education & Experience -->
+          <div class="space-y-4 pt-4 border-t border-white/10">
+            <h3 class="font-syne text-lg font-bold text-white">Experience & Education</h3>
+            
+            <div class="p-4 rounded-xl glass-card">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-neon text-sm">Graphic Designer & Video Editor</h4>
+                  <p class="text-xs text-slate-300">TAC – THE ART CODE</p>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400 bg-surface px-2 py-1 rounded">MARCH 2026 – PRESENT</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-white text-sm">Freelancing Video Editor</h4>
+                  <p class="text-xs text-slate-400">Wedding Teasers, Song Videos, YouTube Video Songs</p>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400 bg-surface px-2 py-1 rounded">NOV 2025</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl glass-card">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-white text-sm">Bachelor's Degree (BSC - MSCS)</h4>
+                  <p class="text-xs text-slate-400">Prathibha Degree and PG College</p>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400 bg-surface px-2 py-1 rounded">GRADUATED 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Software & Tools Stack -->
+        <div class="lg:col-span-6 space-y-6 reveal">
+          <h3 class="font-syne text-xl font-bold text-white mb-4">Tools & Skillsets</h3>
+
+          <div class="grid grid-cols-2 gap-3 mb-6">
+            <div class="p-3 rounded-xl glass-card text-center">
+              <i class="fa-solid fa-scissors text-neon mb-1"></i>
+              <p class="text-xs font-semibold text-white">Short-form Editing</p>
+            </div>
+            <div class="p-3 rounded-xl glass-card text-center">
+              <i class="fa-solid fa-clapperboard text-cyberBlue mb-1"></i>
+              <p class="text-xs font-semibold text-white">Documentary-Style</p>
+            </div>
+            <div class="p-3 rounded-xl glass-card text-center">
+              <i class="fa-solid fa-book-open text-gold mb-1"></i>
+              <p class="text-xs font-semibold text-white">Visual Storytelling</p>
+            </div>
+            <div class="p-3 rounded-xl glass-card text-center">
+              <i class="fa-solid fa-palette text-purple-400 mb-1"></i>
+              <p class="text-xs font-semibold text-white">Video Color Correction</p>
+            </div>
+            <div class="p-3 rounded-xl glass-card text-center">
+              <i class="fa-solid fa-mobile-screen text-pink-400 mb-1"></i>
+              <p class="text-xs font-semibold text-white">Reels & Shorts</p>
+            </div>
+            <div class="p-3 rounded-xl glass-card text-center">
+              <i class="fa-solid fa-compact-disc text-green-400 mb-1"></i>
+              <p class="text-xs font-semibold text-white">Sound & Music Sync</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Premiere Pro -->
+            <div class="p-4 rounded-2xl glass-card">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-white">Adobe Premiere Pro</span>
+                <span class="text-xs font-mono text-neon">Advanced</span>
+              </div>
+              <div class="w-full h-1.5 bg-surfaceLight rounded-full overflow-hidden">
+                <div class="h-full bg-neon w-[95%]"></div>
+              </div>
+            </div>
+
+            <!-- After Effects -->
+            <div class="p-4 rounded-2xl glass-card">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-white">Adobe After Effects</span>
+                <span class="text-xs font-mono text-neon">Advanced</span>
+              </div>
+              <div class="w-full h-1.5 bg-surfaceLight rounded-full overflow-hidden">
+                <div class="h-full bg-neon w-[90%]"></div>
+              </div>
+            </div>
+
+            <!-- Photoshop -->
+            <div class="p-4 rounded-2xl glass-card">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-white">Adobe Photoshop & Illustrator</span>
+                <span class="text-xs font-mono text-neon">Expert Graphic Design</span>
+              </div>
+              <div class="w-full h-1.5 bg-surfaceLight rounded-full overflow-hidden">
+                <div class="h-full bg-neon w-[92%]"></div>
+              </div>
+            </div>
+
+            <!-- DaVinci Resolve -->
+            <div class="p-4 rounded-2xl glass-card">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-white">DaVinci Resolve</span>
+                <span class="text-xs font-mono text-neon">Color Correction</span>
+              </div>
+              <div class="w-full h-1.5 bg-surfaceLight rounded-full overflow-hidden">
+                <div class="h-full bg-neon w-[85%]"></div>
+              </div>
+            </div>
+
+            <!-- AI Tools -->
+            <div class="p-4 rounded-2xl glass-card">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-white">AI Tools for Editing</span>
+                <span class="text-xs font-mono text-neon">Integrated</span>
+              </div>
+              <div class="w-full h-1.5 bg-surfaceLight rounded-full overflow-hidden">
+                <div class="h-full bg-neon w-[88%]"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="p-4 rounded-2xl glass-card flex items-center justify-between text-xs font-mono">
+            <span class="text-slate-400 uppercase">Languages Spoken:</span>
+            <div class="flex gap-3 text-white font-bold">
+              <span>Telugu (Native)</span> •
+              <span>Hindi</span> •
+              <span>English</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SHOWCASE: 9 POSTERS GRID SECTION -->
+    <section id="portfolio" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center space-y-4 mb-12 reveal">
+        <span class="text-neon font-mono text-xs uppercase tracking-widest">Proof of Excellence</span>
+        <h2 class="font-syne text-3xl sm:text-5xl font-bold text-white">My 9 Poster Designs</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base">Explore my collection of custom movie, brand, and promotional poster designs.</p>
+      </div>
+
+      <!-- 9 Posters Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+        
+        <!-- Poster 1 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('3 days to go @theparadisemovie.jpg', 'Paradise Movie Poster', 'Movie Poster Design / Graphic Artwork')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="3 days to go @theparadisemovie.jpg" alt="Poster 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-neon text-[10px] font-mono px-3 py-1 rounded-full border border-neon/30">Poster #1</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">The Paradise Movie Teaser</h3>
+            <p class="text-xs text-slate-400 mt-1">Cinematic typography and poster layout design in Photoshop.</p>
+          </div>
+        </div>
+
+        <!-- Poster 2 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('sampu.png', 'Abstract Visual Artwork', 'Graphic Design & Digital Art')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="biker.png.web" alt="Poster 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-cyberBlue text-[10px] font-mono px-3 py-1 rounded-full border border-cyberBlue/30">Poster #2</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Creative Brand Campaign</h3>
+            <p class="text-xs text-slate-400 mt-1">High-contrast visual design & typography composition.</p>
+          </div>
+        </div>
+
+        <!-- Poster 3 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop', 'Cinematic Film Concept', 'Film & Poster Art')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" alt="Poster 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-gold text-[10px] font-mono px-3 py-1 rounded-full border border-gold/30">Poster #3</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Action Film Promo Poster</h3>
+            <p class="text-xs text-slate-400 mt-1">Dramatic color correction, smoke effects & title treatment.</p>
+          </div>
+        </div>
+
+        <!-- Poster 4 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('11.png', 'Cyberpunk Concept Design', 'Digital Artwork')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="11.png" alt="Poster 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-purple-400 text-[10px] font-mono px-3 py-1 rounded-full border border-purple-400/30">Poster #4</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Sci-Fi Futuristic Poster</h3>
+            <p class="text-xs text-slate-400 mt-1">Neon glow aesthetics, compositing & visual effects.</p>
+          </div>
+        </div>
+
+        <!-- Poster 5 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop', 'Music Album / Song Poster', 'Cover Design')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" alt="Poster 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-neon text-[10px] font-mono px-3 py-1 rounded-full border border-neon/30">Poster #5</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Music Video Teaser Poster</h3>
+            <p class="text-xs text-slate-400 mt-1">Vibrant color palette & artistic branding.</p>
+          </div>
+        </div>
+
+        <!-- Poster 6 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop', 'Sports / Event Poster', 'Event Design')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=800&auto=format&fit=crop" alt="Poster 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-cyberBlue text-[10px] font-mono px-3 py-1 rounded-full border border-cyberBlue/30">Poster #6</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Gaming & Esports Poster</h3>
+            <p class="text-xs text-slate-400 mt-1">High energy graphics & dynamic photo manipulation.</p>
+          </div>
+        </div>
+
+        <!-- Poster 7 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop', 'Wedding / Event Poster', 'Special Events')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop" alt="Poster 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-gold text-[10px] font-mono px-3 py-1 rounded-full border border-gold/30">Poster #7</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Wedding Teaser & Event Poster</h3>
+            <p class="text-xs text-slate-400 mt-1">Elegant typography, warm tones, and romantic layout.</p>
+          </div>
+        </div>
+
+        <!-- Poster 8 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('https://images.unsplash.com/photo-1578926375605-eaf7559b1458?q=80&w=800&auto=format&fit=crop', 'Documentary Feature Art', 'Documentary Artwork')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578926375605-eaf7559b1458?q=80&w=800&auto=format&fit=crop" alt="Poster 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-purple-400 text-[10px] font-mono px-3 py-1 rounded-full border border-purple-400/30">Poster #8</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Documentary Cover Art</h3>
+            <p class="text-xs text-slate-400 mt-1">Gritty textures, narrative imagery & custom vector graphics.</p>
+          </div>
+        </div>
+
+        <!-- Poster 9 -->
+        <div class="portfolio-item group glass-card rounded-2xl overflow-hidden cursor-pointer reveal" onclick="openImageModal('https://images.unsplash.com/photo-1500462859233-51da074ee822?q=80&w=800&auto=format&fit=crop', 'Commercial Product Design', 'Product Branding')">
+          <div class="relative aspect-[3/4] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1500462859233-51da074ee822?q=80&w=800&auto=format&fit=crop" alt="Poster 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-obsidian/40 group-hover:bg-obsidian/10 transition-colors"></div>
+            <div class="absolute top-3 left-3 bg-obsidian/80 backdrop-blur-md text-neon text-[10px] font-mono px-3 py-1 rounded-full border border-neon/30">Poster #9</div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="w-12 h-12 rounded-full bg-neon text-obsidian flex items-center justify-center shadow-lg"><i class="fa-solid fa-expand"></i></span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-syne font-bold text-white text-lg group-hover:text-neon transition-colors">Commercial Brand Showcase</h3>
+            <p class="text-xs text-slate-400 mt-1">Clean corporate aesthetics with vector design in Illustrator.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES OFFERED -->
+    <section id="services" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5">
+      <div class="text-center space-y-4 mb-16 reveal">
+        <span class="text-neon font-mono text-xs uppercase tracking-widest">Capabilities</span>
+        <h2 class="font-syne text-3xl sm:text-5xl font-bold text-white">What I Can Do For You</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl relative group reveal hover:border-neon/50 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-neon/10 text-neon flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-film"></i>
+          </div>
+          <h3 class="font-syne text-xl font-bold text-white mb-3">Video Editing</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Short-form Reels/Shorts, YouTube Videos, Documentary-style cuts, and Wedding Song Teasers.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative group reveal hover:border-cyberBlue/50 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-cyberBlue/10 text-cyberBlue flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <h3 class="font-syne text-xl font-bold text-white mb-3">Graphic & Poster Design</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Photoshop & Illustrator poster designs, social media branding, thumbnails, and key art creation.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative group reveal hover:border-gold/50 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="font-syne text-xl font-bold text-white mb-3">Motion Graphics</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Dynamic text popups, lower thirds, title animations, and smooth visual transitions in After Effects.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative group reveal hover:border-purple-500/50 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <h3 class="font-syne text-xl font-bold text-white mb-3">Color Correction</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Color correction and grading using DaVinci Resolve to bring film-grade mood and vibrancy.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative group reveal hover:border-red-500/50 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-headphones"></i>
+          </div>
+          <h3 class="font-syne text-xl font-bold text-white mb-3">Sound Design & Music Sync</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Clean sound effects layering, voice enhancement, beat sync, and immersive audio mixing.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl relative group reveal hover:border-green-500/50 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-green-500/10 text-green-400 flex items-center justify-center text-2xl mb-6">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="font-syne text-xl font-bold text-white mb-3">AI Tool Integration</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">Leveraging modern AI tools to accelerate asset generation, audio cleanup, and video workflows.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+      <div class="absolute inset-0 bg-neon/5 blur-[150px] pointer-events-none rounded-full"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 glass-card p-8 sm:p-12 md:p-16 rounded-3xl border border-white/10 relative z-10">
+        
+        <div class="lg:col-span-5 space-y-6 reveal">
+          <span class="text-neon font-mono text-xs uppercase tracking-widest">Let's Connect</span>
+          <h2 class="font-syne text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+            Have a Project in Mind? <span class="text-gradient-neon">Let's Talk!</span>
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+            Feel free to reach out directly via Phone, Email, or WhatsApp for editing & design collaborations.
+          </p>
+
+          <div class="space-y-4 pt-4">
+            <a href="mailto:ashwanraojakkinapally@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-surfaceLight/50 hover:bg-surfaceLight border border-white/5 transition-all group">
+              <div class="w-12 h-12 rounded-xl bg-neon/10 text-neon flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-400 font-mono">DIRECT EMAIL</p>
+                <p class="text-sm font-bold text-white group-hover:text-neon transition-colors">ashwanraojakkinapally@gmail.com</p>
+              </div>
+            </a>
+
+            <a href="tel:+918341170665" class="flex items-center gap-4 p-4 rounded-2xl bg-surfaceLight/50 hover:bg-surfaceLight border border-white/5 transition-all group">
+              <div class="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center text-lg group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-400 font-mono">PHONE / WHATSAPP</p>
+                <p class="text-sm font-bold text-white group-hover:text-green-400 transition-colors">+91 834 117 0665</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-surfaceLight/50 border border-white/5">
+              <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-lg">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-400 font-mono">INSTAGRAM</p>
+                <p class="text-sm font-bold text-white">HUKUM@3133</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 reveal">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2" for="name">Your Name *</label>
+                <input type="text" id="name" required placeholder="e.g. Rahul Sharma" class="w-full bg-surfaceLight/60 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2" for="email">Email Address *</label>
+                <input type="email" id="email" required placeholder="name@domain.com" class="w-full bg-surfaceLight/60 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon transition-colors">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2" for="project-type">Service Required</label>
+              <select id="project-type" class="w-full bg-surfaceLight/60 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-neon transition-colors">
+                <option value="poster" class="bg-obsidian">Poster / Graphic Design</option>
+                <option value="reels" class="bg-obsidian">Short-Form Video / Reels</option>
+                <option value="doc" class="bg-obsidian">Documentary Style Editing</option>
+                <option value="wedding" class="bg-obsidian">Wedding Teaser / Song Video</option>
+                <option value="other" class="bg-obsidian">Other Services</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-2" for="message">Project Details *</label>
+              <textarea id="message" rows="4" required placeholder="Describe your poster or video editing requirements..." class="w-full bg-surfaceLight/60 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-neon transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 rounded-xl bg-neon text-obsidian font-extrabold text-sm uppercase tracking-wider hover:bg-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,135,0.4)] flex items-center justify-center gap-2">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8 bg-obsidian relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-400 font-mono">
+      <div class="flex items-center gap-2">
+        <span class="font-syne font-bold text-white text-base">Ashwan Jakkinapally</span>
+        <span>© 2026. All Rights Reserved.</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#about" class="hover:text-neon transition-colors">About</a>
+        <a href="#portfolio" class="hover:text-neon transition-colors">Posters</a>
+        <a href="#services" class="hover:text-neon transition-colors">Services</a>
+        <a href="#contact" class="hover:text-neon transition-colors">Contact</a>
+      </div>
+
+      <button id="scroll-to-top" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-neon hover:border-neon transition-all" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- IMAGE LIGHTBOX MODAL -->
+  <div id="image-modal" class="fixed inset-0 z-[10000] bg-obsidian/90 backdrop-blur-xl hidden flex flex-col items-center justify-center p-4 sm:p-8">
+    <div class="relative max-w-4xl max-h-[90vh] glass-card rounded-3xl overflow-hidden border border-white/15 shadow-2xl flex flex-col">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-surface">
+        <div>
+          <h3 id="modal-image-title" class="font-syne font-bold text-white text-base sm:text-lg">Poster Preview</h3>
+          <p id="modal-image-subtitle" class="text-xs font-mono text-neon">Graphic Art Design</p>
+        </div>
+        <button onclick="closeImageModal()" class="w-10 h-10 rounded-full bg-surfaceLight text-slate-400 hover:text-white hover:bg-red-500/20 transition-all flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-4 flex items-center justify-center overflow-auto max-h-[75vh]">
+        <img id="modal-image" src="" alt="Poster Preview" class="max-h-[70vh] object-contain rounded-xl">
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-8 right-8 z-[10001] hidden glass-card border border-neon/50 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4">
+    <div class="w-8 h-8 rounded-full bg-neon/20 text-neon flex items-center justify-center">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <div>
+      <h4 class="font-bold text-white text-sm">Message Sent!</h4>
+      <p class="text-xs text-slate-300">Ashwan will respond to your inquiry shortly.</p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // PRELOADER
+    window.addEventListener('load', () => {
+      const loaderBar = document.getElementById('loader-bar');
+      const loaderPercent = document.getElementById('loader-percent');
+      const preloader = document.getElementById('preloader');
+
+      let percent = 0;
+      const interval = setInterval(() => {
+        percent += Math.floor(Math.random() * 20) + 10;
+        if (percent >= 100) {
+          percent = 100;
+          clearInterval(interval);
+          setTimeout(() => {
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+          }, 300);
+        }
+        loaderBar.style.width = `${percent}%`;
+        loaderPercent.textContent = `${percent}%`;
+      }, 50);
+    });
+
+    // CURSOR LOGIC
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+      follower.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+    });
+
+    // NAVBAR & SCROLL TOP
+    const navbar = document.getElementById('navbar');
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('py-2', 'shadow-2xl');
+      } else {
+        navbar.classList.remove('py-2', 'shadow-2xl');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // MOBILE MENU
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // REVEAL ANIMATIONS
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // IMAGE MODAL FOR POSTERS
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalImageTitle = document.getElementById('modal-image-title');
+    const modalImageSubtitle = document.getElementById('modal-image-subtitle');
+
+    function openImageModal(imgSrc, title, subtitle) {
+      modalImage.src = imgSrc;
+      modalImageTitle.textContent = title;
+      modalImageSubtitle.textContent = subtitle;
+      imageModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      imageModal.classList.add('hidden');
+      modalImage.src = "";
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeImageModal();
+    });
+
+    // CONTACT FORM TOAST
+    const contactForm = document.getElementById('contact-form');
+    const toast = document.getElementById('toast');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
