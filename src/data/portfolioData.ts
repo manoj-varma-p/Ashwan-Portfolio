@@ -56,6 +56,26 @@ export const PERSONAL_INFO = {
 
 export const POSTERS_DATA: PosterItem[] = [
   {
+    id: "ranabaali-vijay",
+    title: "Ranabaali — Vijay Deverakonda First Look",
+    category: "Movie Posters",
+    subtitle: "Rahul Sankrityan Film Key Art",
+    description: "Official key art and first look poster design for Ranabaali starring Vijay Deverakonda, directed by Rahul Sankrityan. Produced by Mythri Movie Makers & T-Series with dramatic low-key lighting, intense character expression, and rugged title design.",
+    tools: ["Adobe Photoshop", "Cinematic Lighting", "Typography", "Color Grading"],
+    image: "/images/poster-ranabaali-vijay.jpeg",
+    featured: true
+  },
+  {
+    id: "ranabaali-rashmika",
+    title: "Ranabaali — Rashmika Mandanna Release Poster",
+    category: "Movie Posters",
+    subtitle: "Oct 16 Worldwide Theatrical Key Art",
+    description: "Official theatrical release date poster for Ranabaali featuring Rashmika Mandanna. Designed with warm atmospheric candlelight, traditional period textures, and metallic 3D release date typography.",
+    tools: ["Adobe Photoshop", "Digital Matte Painting", "Texture Compositing", "Typography"],
+    image: "/images/poster-ranabaali-rashmika.jpeg",
+    featured: true
+  },
+  {
     id: "paradise-2days",
     title: "The Paradise Movie Teaser Poster",
     category: "Movie Posters",
