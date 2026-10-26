@@ -67,7 +67,7 @@ export function ExperienceSection() {
                         </span>
                       )}
                     </div>
-                    <h3 className="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white group-hover:text-[#C8FF00] transition-colors duration-200">
+                    <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight text-white group-hover:text-[#C8FF00] transition-colors duration-200">
                       {exp.role}
                     </h3>
                   </div>

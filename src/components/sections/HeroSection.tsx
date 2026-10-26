@@ -146,9 +146,9 @@ export function HeroSection() {
 
                 <div className="pt-2 relative z-10">
                   {/* Uppercase Chunky Headline */}
-                  <h2 className="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#0A0A0A] mb-4">
+                  <h2 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none text-[#0A0A0A] mb-3">
                     ABOUT<br />
-                    <span className="text-[#0A0A0A] text-5xl sm:text-6xl font-black">ME</span>
+                    <span className="text-[#0A0A0A] text-3xl sm:text-4xl font-black">ME</span>
                   </h2>
 
                   {/* Editorial Bio Paragraph */}
@@ -231,7 +231,7 @@ export function HeroSection() {
 
                 {/* Distinctive Uppercase Blue "EDUCATION" Signature */}
                 <div className="relative z-10 mt-6 pt-3 border-t border-black/10 text-center">
-                  <span className="font-display text-2xl sm:text-3xl font-black text-[#0066FF] tracking-tight uppercase">
+                  <span className="font-display text-xl sm:text-2xl font-black text-[#0066FF] tracking-tight uppercase">
                     EDUCATION
                   </span>
                 </div>
@@ -793,7 +793,7 @@ export function HeroSection() {
                 <div className="absolute top-0 inset-x-0 h-2 bg-[#FF6A00] shadow-[0_2px_10px_rgba(255,106,0,0.3)]" />
 
                 <div className="pt-2 relative z-10">
-                  <h2 className="font-display text-3xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-3 uppercase">
+                  <h2 className="font-display text-xl sm:text-2xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-3 uppercase">
                     WORK<br />EXPERIENCE
                   </h2>
 
@@ -860,7 +860,7 @@ export function HeroSection() {
                 <div className="absolute top-0 inset-x-0 h-2 bg-[#FF6A00] shadow-[0_2px_10px_rgba(255,106,0,0.3)]" />
 
                 <div className="pt-2 text-center flex flex-col items-center relative z-10">
-                  <h2 className="font-display text-3xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-4 uppercase">
+                  <h2 className="font-display text-xl sm:text-2xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-3 uppercase">
                     APPROACH
                   </h2>
 

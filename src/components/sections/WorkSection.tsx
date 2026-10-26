@@ -289,11 +289,11 @@ export function WorkSection() {
                       </span>
                     </div>
 
-                    <h3 className="font-display text-sm sm:text-base font-bold text-white uppercase tracking-tight truncate group-hover:text-[#C8FF00] transition-colors duration-200">
+                    <h3 className="font-display text-xs sm:text-sm font-bold text-white uppercase tracking-tight leading-snug line-clamp-2 group-hover:text-[#C8FF00] transition-colors duration-200">
                       {project.title}
                     </h3>
 
-                    <p className="font-mono-tech text-[10px] sm:text-[11px] text-neutral-300 uppercase tracking-tight truncate mt-0.5">
+                    <p className="font-mono-tech text-[9px] sm:text-[10px] text-neutral-300 uppercase tracking-tight line-clamp-1 mt-0.5">
                       {project.subtitle}
                     </p>
                   </div>

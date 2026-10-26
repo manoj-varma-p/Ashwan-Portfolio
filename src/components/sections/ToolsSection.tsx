@@ -92,7 +92,7 @@ export function ToolsSection() {
               <span className="font-mono-tech text-xs text-[#FF6A00] tracking-widest uppercase font-bold block mb-1">
                 POST-PRODUCTION BLUEPRINT
               </span>
-              <h3 className="font-display text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+              <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
                 FROM RAW REEL TO FINAL MASTER
               </h3>
               <div className="flex items-center justify-center gap-2 font-mono-tech text-xs text-neutral-400 font-semibold mt-3">

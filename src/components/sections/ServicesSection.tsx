@@ -154,7 +154,7 @@ export function ServicesSection() {
                     </div>
 
                     <div className="max-w-md">
-                      <h4 className="font-display text-3xl font-black text-white uppercase tracking-tight mb-2">
+                      <h4 className="font-display text-2xl sm:text-3xl font-black text-white uppercase tracking-tight mb-2">
                         {activeService.title}
                       </h4>
                       <p className="font-sans-editorial text-sm text-neutral-300 leading-relaxed font-medium">
