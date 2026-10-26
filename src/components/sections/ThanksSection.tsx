@@ -43,14 +43,14 @@ export function ThanksSection() {
           <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-0 pointer-events-none overflow-hidden flex items-center">
             <div className="animate-marquee-infinite-thanks">
               {/* Track 1 */}
-              <div className="flex shrink-0 items-center gap-8 sm:gap-14 whitespace-nowrap pr-8 sm:pr-14">
+              <div className="flex shrink-0 items-center gap-6 sm:gap-10 whitespace-nowrap pr-6 sm:pr-10">
                 {[1, 2, 3, 4].map((i) => (
                   <span
                     key={`thanks-track1-${i}`}
-                    className="font-display text-[25vw] sm:text-[23vw] md:text-[21vw] leading-[0.78] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:4px_#000000] drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)] flex items-center gap-8 sm:gap-14"
+                    className="font-display text-[17vw] sm:text-[15vw] md:text-[13vw] leading-[0.8] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:3px_#000000] drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)] flex items-center gap-6 sm:gap-10"
                   >
                     <span>THANK YOU</span>
-                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] sm:[-webkit-text-stroke:3px_#C8FF00] text-[14vw] sm:text-[12vw]">
+                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] text-[9vw] sm:text-[8vw]">
                       ✱
                     </span>
                   </span>
@@ -59,16 +59,16 @@ export function ThanksSection() {
 
               {/* Track 2 (Seamless loop duplicate) */}
               <div
-                className="flex shrink-0 items-center gap-8 sm:gap-14 whitespace-nowrap pr-8 sm:pr-14"
+                className="flex shrink-0 items-center gap-6 sm:gap-10 whitespace-nowrap pr-6 sm:pr-10"
                 aria-hidden="true"
               >
                 {[1, 2, 3, 4].map((i) => (
                   <span
                     key={`thanks-track2-${i}`}
-                    className="font-display text-[25vw] sm:text-[23vw] md:text-[21vw] leading-[0.78] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:4px_#000000] drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)] flex items-center gap-8 sm:gap-14"
+                    className="font-display text-[17vw] sm:text-[15vw] md:text-[13vw] leading-[0.8] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:3px_#000000] drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)] flex items-center gap-6 sm:gap-10"
                   >
                     <span>THANK YOU</span>
-                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] sm:[-webkit-text-stroke:3px_#C8FF00] text-[14vw] sm:text-[12vw]">
+                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] text-[9vw] sm:text-[8vw]">
                       ✱
                     </span>
                   </span>
