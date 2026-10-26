@@ -39,17 +39,42 @@ export function ThanksSection() {
         {/* Giant Outro Canvas */}
         <div className="relative w-full min-h-[520px] sm:min-h-[640px] md:min-h-[720px] flex items-end justify-center overflow-hidden">
           
-          {/* Gigantic Acid-Yellow "THANKS!" Typography dominating behind subject */}
-          <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-            <motion.h2
-              initial={{ opacity: 0, scale: 0.9, y: 50 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-[27vw] sm:text-[25vw] md:text-[23vw] leading-[0.72] tracking-tighter text-[#C8FF00] font-black uppercase text-center w-full select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:4px_#000000] drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)]"
-            >
-              THANKS!
-            </motion.h2>
+          {/* Gigantic Scrolling Acid-Yellow "THANK YOU" Marquee behind subject */}
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-0 pointer-events-none overflow-hidden flex items-center">
+            <div className="animate-marquee-infinite-thanks">
+              {/* Track 1 */}
+              <div className="flex shrink-0 items-center gap-8 sm:gap-14 whitespace-nowrap pr-8 sm:pr-14">
+                {[1, 2, 3, 4].map((i) => (
+                  <span
+                    key={`thanks-track1-${i}`}
+                    className="font-display text-[25vw] sm:text-[23vw] md:text-[21vw] leading-[0.78] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:4px_#000000] drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)] flex items-center gap-8 sm:gap-14"
+                  >
+                    <span>THANK YOU</span>
+                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] sm:[-webkit-text-stroke:3px_#C8FF00] text-[14vw] sm:text-[12vw]">
+                      ✱
+                    </span>
+                  </span>
+                ))}
+              </div>
+
+              {/* Track 2 (Seamless loop duplicate) */}
+              <div
+                className="flex shrink-0 items-center gap-8 sm:gap-14 whitespace-nowrap pr-8 sm:pr-14"
+                aria-hidden="true"
+              >
+                {[1, 2, 3, 4].map((i) => (
+                  <span
+                    key={`thanks-track2-${i}`}
+                    className="font-display text-[25vw] sm:text-[23vw] md:text-[21vw] leading-[0.78] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:4px_#000000] drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)] flex items-center gap-8 sm:gap-14"
+                  >
+                    <span>THANK YOU</span>
+                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] sm:[-webkit-text-stroke:3px_#C8FF00] text-[14vw] sm:text-[12vw]">
+                      ✱
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Foreground Portrait Cutout Overlapping Typography */}

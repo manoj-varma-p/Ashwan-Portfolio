@@ -81,7 +81,15 @@ h1, h2, h3, h4, h5, h6, [data-title], .title-caps {
   animation: marquee-continuous 32s linear infinite;
 }
 
-.animate-marquee-infinite:hover {
+.animate-marquee-infinite-thanks {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-continuous 24s linear infinite;
+}
+
+.animate-marquee-infinite:hover,
+.animate-marquee-infinite-thanks:hover {
   animation-play-state: paused;
 }
 
