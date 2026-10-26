@@ -16,7 +16,8 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      // Switch when scrolled past initial hero header area
+      if (window.scrollY > 90) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -67,21 +68,22 @@ export function Navbar() {
     <>
       <header className="fixed top-0 inset-x-0 z-50 pointer-events-none transition-all duration-300">
         <div
-          className={`w-full px-3 sm:px-6 lg:px-8 transition-all duration-500 ease-out ${
-            isScrolled ? "pt-3 sm:pt-4" : "pt-4 sm:pt-6"
+          className={`w-full transition-all duration-500 ease-out ${
+            isScrolled
+              ? "pt-3 sm:pt-4 px-3 sm:px-6 lg:px-8"
+              : "pt-4 sm:pt-6 px-4 sm:px-8 lg:px-12"
           }`}
         >
           <motion.div
-            initial={{ y: -30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            layout
+            transition={{ type: "spring", stiffness: 320, damping: 28 }}
             className={`pointer-events-auto mx-auto transition-all duration-500 ease-out flex items-center justify-between ${
               isScrolled
-                ? "max-w-6xl bg-[#0A0A0A]/85 backdrop-blur-2xl border border-white/20 px-4 sm:px-6 py-2.5 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.85)]"
-                : "max-w-7xl bg-[#0A0A0A]/50 backdrop-blur-md border border-white/10 px-4 sm:px-6 py-3.5 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+                ? "max-w-5xl bg-[#0A0A0A]/90 backdrop-blur-2xl border border-white/20 px-4 sm:px-6 py-2 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.85)]"
+                : "max-w-7xl bg-transparent border-transparent px-0 py-0 shadow-none"
             }`}
           >
-            {/* ── Brand Interactive Logo ── */}
+            {/* ── Brand Logo ── */}
             <Link
               href="#"
               onClick={(e) => {
@@ -90,27 +92,54 @@ export function Navbar() {
               }}
               className="group flex items-center gap-3 cursor-pointer select-none"
             >
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-xl border border-white/20 flex items-center justify-center transition-all duration-300 ease-out group-hover:border-[#C8FF00] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(200,255,0,0.4)] overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#C8FF00]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div
+                className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 ease-out overflow-hidden ${
+                  isScrolled
+                    ? "bg-black border border-white/20 group-hover:border-[#C8FF00] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(200,255,0,0.4)]"
+                    : "bg-black border-2 border-black text-[#C8FF00] shadow-md group-hover:scale-105"
+                }`}
+              >
                 <span className="text-[#C8FF00] font-display font-black text-xl sm:text-2xl transition-transform duration-300 group-hover:scale-110">
                   A
                 </span>
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-display text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-[#C8FF00] transition-colors leading-none uppercase">
+                  <span
+                    className={`font-display text-lg sm:text-xl font-black tracking-tight uppercase leading-none transition-colors ${
+                      isScrolled
+                        ? "text-white group-hover:text-[#C8FF00]"
+                        : "text-[#0A0A0A] group-hover:text-black"
+                    }`}
+                  >
                     ASHWAN
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF00] shadow-[0_0_8px_#C8FF00] animate-pulse" />
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      isScrolled
+                        ? "bg-[#C8FF00] shadow-[0_0_8px_#C8FF00] animate-pulse"
+                        : "bg-black"
+                    }`}
+                  />
                 </div>
-                <span className="font-mono-tech text-[8px] sm:text-[9px] tracking-widest text-neutral-400 uppercase leading-tight font-bold">
+                <span
+                  className={`font-mono-tech text-[8px] sm:text-[9px] tracking-widest uppercase leading-tight font-black ${
+                    isScrolled ? "text-neutral-400" : "text-black/75"
+                  }`}
+                >
                   VIDEO & GRAPHICS
                 </span>
               </div>
             </Link>
 
-            {/* ── Desktop Dynamic Floating Island Navigation ── */}
-            <nav className="hidden md:flex items-center gap-1 bg-black/60 border border-white/10 px-2 py-1 rounded-full backdrop-blur-xl shadow-inner">
+            {/* ── Desktop Navigation ── */}
+            <nav
+              className={`hidden md:flex items-center gap-1 transition-all duration-500 ${
+                isScrolled
+                  ? "bg-black/60 border border-white/10 px-2 py-1 rounded-full backdrop-blur-xl shadow-inner"
+                  : "bg-transparent border-transparent px-0 py-0"
+              }`}
+            >
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 const isHovered = hoveredNav === link.id;
@@ -129,7 +158,11 @@ export function Navbar() {
                       <motion.div
                         layoutId="active-nav-pill"
                         transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                        className="absolute inset-0 bg-[#C8FF00] rounded-full shadow-[0_0_15px_rgba(200,255,0,0.55)]"
+                        className={`absolute inset-0 rounded-full shadow-md ${
+                          isScrolled
+                            ? "bg-[#C8FF00] shadow-[0_0_15px_rgba(200,255,0,0.55)]"
+                            : "bg-black shadow-[0_4px_12px_rgba(0,0,0,0.25)]"
+                        }`}
                       />
                     )}
 
@@ -138,17 +171,27 @@ export function Navbar() {
                       <motion.div
                         layoutId="hover-nav-pill"
                         transition={{ type: "spring", stiffness: 450, damping: 28 }}
-                        className="absolute inset-0 bg-white/12 rounded-full border border-white/15"
+                        className={`absolute inset-0 rounded-full ${
+                          isScrolled
+                            ? "bg-white/12 border border-white/15"
+                            : "bg-black/10 border border-black/15"
+                        }`}
                       />
                     )}
 
                     <span
                       className={`relative z-10 transition-colors duration-200 ${
                         isActive
-                          ? "text-black font-black"
+                          ? isScrolled
+                            ? "text-black font-black"
+                            : "text-[#C8FF00] font-black"
+                          : isScrolled
+                          ? isHovered
+                            ? "text-white font-bold"
+                            : "text-neutral-300 font-semibold"
                           : isHovered
-                          ? "text-white font-bold"
-                          : "text-neutral-300 font-semibold"
+                          ? "text-black font-black"
+                          : "text-black/85 font-black"
                       }`}
                     >
                       {link.name}
@@ -161,19 +204,37 @@ export function Navbar() {
             {/* ── Right Action Controls ── */}
             <div className="flex items-center gap-2.5 sm:gap-3">
               {/* Live Availability Pill */}
-              <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 border border-white/10 font-mono-tech text-[10px] tracking-wider uppercase font-bold text-neutral-300">
+              <div
+                className={`hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full font-mono-tech text-[10px] tracking-wider uppercase font-black transition-colors ${
+                  isScrolled
+                    ? "bg-black/50 border border-white/10 text-neutral-300"
+                    : "bg-black/10 border border-black/15 text-black"
+                }`}
+              >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8FF00] opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8FF00]" />
+                  <span
+                    className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                      isScrolled ? "bg-[#C8FF00]" : "bg-black"
+                    }`}
+                  />
+                  <span
+                    className={`relative inline-flex rounded-full h-2 w-2 ${
+                      isScrolled ? "bg-[#C8FF00]" : "bg-black"
+                    }`}
+                  />
                 </span>
                 <span>OPEN FOR 2026</span>
               </div>
 
-              {/* Animated Glowing "LET'S TALK" CTA */}
+              {/* "LET'S TALK" CTA */}
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "#contact")}
-                className="group relative hidden sm:inline-flex items-center gap-2 bg-[#C8FF00] hover:bg-[#DFFF18] text-black font-display font-black text-xs uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(200,255,0,0.35)] hover:shadow-[0_0_30px_rgba(200,255,0,0.6)] cursor-pointer overflow-hidden select-none"
+                className={`group relative hidden sm:inline-flex items-center gap-2 font-display font-black text-xs uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer overflow-hidden select-none ${
+                  isScrolled
+                    ? "bg-[#C8FF00] hover:bg-[#DFFF18] text-black shadow-[0_0_20px_rgba(200,255,0,0.35)] hover:shadow-[0_0_30px_rgba(200,255,0,0.6)]"
+                    : "bg-black hover:bg-neutral-900 text-[#C8FF00] shadow-[0_4px_16px_rgba(0,0,0,0.25)] border-2 border-black"
+                }`}
               >
                 <span className="relative z-10 tracking-wider">LET&apos;S TALK</span>
                 <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -182,7 +243,11 @@ export function Navbar() {
               {/* Mobile Drawer Trigger */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-xl bg-black/80 border border-white/20 text-white hover:text-[#C8FF00] hover:border-[#C8FF00] transition-colors duration-200 active:scale-95 cursor-pointer shadow-md"
+                className={`md:hidden p-2 rounded-xl transition-colors duration-200 active:scale-95 cursor-pointer shadow-md ${
+                  isScrolled
+                    ? "bg-black/80 border border-white/20 text-white hover:text-[#C8FF00] hover:border-[#C8FF00]"
+                    : "bg-black text-[#C8FF00] border-2 border-black hover:bg-neutral-900"
+                }`}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? (
