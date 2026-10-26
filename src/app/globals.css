@@ -1,26 +1,268 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-primary: #050505;
+    --bg-secondary: #0A0A0A;
+    --bg-surface: #141414;
+    --lime: #C8FF00;
+    --lime-bright: #DFFF18;
+    --lime-muted: #849E0F;
+    --orange: #FF6A00;
+    --text-primary: #F5F5F0;
+    --text-muted: #969696;
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-lime: rgba(200, 255, 0, 0.4);
+  }
+
+  * {
+    border-color: var(--border-subtle);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #C8FF00;
+    color: #050505;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-anton), var(--font-bebas), Impact, sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
+
+.font-sans-editorial {
+  font-family: var(--font-space), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Text Stroke effect for giant outline letters */
+.text-stroke-lime {
+  -webkit-text-stroke: 1.5px #849E0F;
+  color: transparent;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+  color: transparent;
+}
+
+.text-stroke-black {
+  -webkit-text-stroke: 1.5px #0A0A0A;
+  color: transparent;
+}
+
+.text-stroke-black-filled {
+  -webkit-text-stroke: 2px #0A0A0A;
+}
+
+/* Halftone dot pattern overlay */
+.bg-halftone {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+}
+
+.bg-halftone-subtle {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-grid-tech {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8FF00;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Clip paths & Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Viewfinder corners */
+.viewfinder-corner-tl {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #0A0A0A;
+  border-left: 2px solid #0A0A0A;
+}
+.viewfinder-corner-tr {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #0A0A0A;
+  border-right: 2px solid #0A0A0A;
+}
+.viewfinder-corner-bl {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #0A0A0A;
+  border-left: 2px solid #0A0A0A;
+}
+.viewfinder-corner-br {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #0A0A0A;
+  border-right: 2px solid #0A0A0A;
+}
+
+/* ── Glossy & Shiny Interactive Block Effects ── */
+.glossy-block {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glossy-block:hover {
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.7), inset 0 1px 2px 0 rgba(255, 255, 255, 0.28), 0 0 25px rgba(200, 255, 0, 0.08);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Diagonal Specular Sheen Beam on Hover (Dark Cards) */
+.glossy-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.glossy-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 30%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.04) 70%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.glossy-shine:hover::before {
+  left: 200%;
+}
+
+/* Diagonal Specular Sheen Beam on Hover (White / Light Cards) */
+.glossy-shine-light {
+  position: relative;
+  overflow: hidden;
+}
+
+.glossy-shine-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(255, 255, 255, 0.2) 70%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.glossy-shine-light:hover::before {
+  left: 200%;
+}
+
+/* Top Glass Highlight Rim */
+.glossy-rim {
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.glossy-rim-light {
+  box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+}
+
