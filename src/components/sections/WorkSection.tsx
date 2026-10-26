@@ -115,8 +115,8 @@ export function WorkSection() {
               </span>
               <span className="w-8 h-[2px] bg-[#C8FF00]" />
             </div>
-            <h2 className="font-display text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight text-white leading-none mb-6">
-              POSTER <span className="text-white underline decoration-[#C8FF00] decoration-8 underline-offset-4">GALLERY.</span>
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-6">
+              POSTER <span className="text-white underline decoration-[#C8FF00] decoration-4 sm:decoration-6 underline-offset-4 sm:underline-offset-6">GALLERY.</span>
             </h2>
 
             {/* Header Controls: Counter & Layout Toggle (Centered) */}

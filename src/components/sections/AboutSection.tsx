@@ -28,7 +28,7 @@ export function AboutSection() {
               <div className="w-8 h-[2px] bg-[#C8FF00]" />
             </div>
 
-            <h2 className="font-display text-6xl sm:text-7xl md:text-8xl font-black tracking-tight uppercase text-white leading-none mb-4">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-white leading-tight mb-4">
               ABOUT <span className="text-[#C8FF00]">ME.</span>
             </h2>
 

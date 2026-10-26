@@ -34,7 +34,7 @@ export function ServicesSection() {
               <div className="w-8 h-[2px] bg-[#C8FF00]" />
             </div>
 
-            <h2 className="font-display text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight text-white leading-[0.88] mb-4">
+            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-4">
               WHAT I BRING <span className="text-[#C8FF00]">TO THE FRAME.</span>
             </h2>
 
