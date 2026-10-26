@@ -1,25 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Syne, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 
-const anton = Anton({
-  weight: "400",
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-anton",
+  weight: ["700", "800"],
+  variable: "--font-syne",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-space",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sans",
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
   variable: "--font-mono",
   display: "swap",
 });
@@ -64,9 +66,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
+      className={`${syne.variable} ${plusJakarta.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full bg-[#050505] text-[#F5F5F0] font-sans-editorial selection:bg-[#C8FF00] selection:text-[#050505] relative">
+      <body className="min-h-full bg-[#050505] text-[#F5F5F0] font-sans selection:bg-[#C8FF00] selection:text-[#050505] relative">
         <SmoothScroll>
           <GrainOverlay />
           <CustomCursor />

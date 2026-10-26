@@ -48,36 +48,36 @@ export function WorkSection() {
       id="work"
       className="relative w-full bg-[#080808] text-[#F5F5F0] pt-12 pb-24 border-t border-white/10 overflow-hidden"
     >
-      {/* ── Top Infinite Ticker Banner in Signature Acid Yellow ── */}
-      <div className="w-full mb-12 sm:mb-16 border-y-2 border-black bg-[#C8FF00] py-3 sm:py-3.5 relative overflow-hidden select-none shadow-sm text-black font-bold">
-        <div className="flex w-max will-change-transform">
+      {/* ── Top Infinite Ticker Banner in Signature Acid Yellow (Continuously Scrolling) ── */}
+      <div className="w-full mb-12 sm:mb-16 border-y-2 border-black bg-[#C8FF00] py-3.5 relative overflow-hidden select-none shadow-sm text-black font-bold">
+        <div className="animate-marquee-infinite">
           {/* Track 1 */}
-          <div className="flex shrink-0 items-center gap-6 sm:gap-10 animate-marquee whitespace-nowrap">
+          <div className="flex shrink-0 items-center gap-6 sm:gap-10 whitespace-nowrap pr-6 sm:pr-10">
             {[1, 2, 3, 4].map((i) => (
               <React.Fragment key={`ticker-1-${i}`}>
                 <span className="font-display text-sm sm:text-base font-black uppercase tracking-wider text-black">
                   SOCIAL MEDIA
                 </span>
-                <span className="text-black text-sm">✳</span>
+                <span className="text-black text-sm">✱</span>
                 <span className="font-mono-tech text-xs sm:text-sm font-black text-black tracking-widest">
                   2026
                 </span>
-                <span className="text-black/40 text-sm">⬡</span>
-                <span className="font-sans-editorial text-xs sm:text-sm tracking-wide text-neutral-900 italic font-semibold">
-                  &ldquo;You need someone that&apos;s able to understand and execute your vision.&rdquo;
+                <span className="text-black/40 text-sm">○</span>
+                <span className="font-sans-editorial text-xs sm:text-sm tracking-wide text-neutral-900 font-bold uppercase">
+                  &ldquo;YOU NEED SOMEONE THAT&apos;S ABLE TO UNDERSTAND AND EXECUTE YOUR VISION.&rdquo;
                 </span>
-                <span className="text-black text-sm">✳</span>
+                <span className="text-black text-sm">✱</span>
                 <span className="font-mono-tech text-xs sm:text-sm font-black text-black tracking-widest">
                   2026
                 </span>
-                <span className="text-black text-sm">✳</span>
+                <span className="text-black text-sm">✱</span>
               </React.Fragment>
             ))}
           </div>
 
           {/* Track 2 (Seamless Infinite Duplicate) */}
           <div
-            className="flex shrink-0 items-center gap-6 sm:gap-10 animate-marquee whitespace-nowrap"
+            className="flex shrink-0 items-center gap-6 sm:gap-10 whitespace-nowrap pr-6 sm:pr-10"
             aria-hidden="true"
           >
             {[1, 2, 3, 4].map((i) => (
@@ -85,19 +85,19 @@ export function WorkSection() {
                 <span className="font-display text-sm sm:text-base font-black uppercase tracking-wider text-black">
                   SOCIAL MEDIA
                 </span>
-                <span className="text-black text-sm">✳</span>
+                <span className="text-black text-sm">✱</span>
                 <span className="font-mono-tech text-xs sm:text-sm font-black text-black tracking-widest">
                   2026
                 </span>
-                <span className="text-black/40 text-sm">⬡</span>
-                <span className="font-sans-editorial text-xs sm:text-sm tracking-wide text-neutral-900 italic font-semibold">
-                  &ldquo;You need someone that&apos;s able to understand and execute your vision.&rdquo;
+                <span className="text-black/40 text-sm">○</span>
+                <span className="font-sans-editorial text-xs sm:text-sm tracking-wide text-neutral-900 font-bold uppercase">
+                  &ldquo;YOU NEED SOMEONE THAT&apos;S ABLE TO UNDERSTAND AND EXECUTE YOUR VISION.&rdquo;
                 </span>
-                <span className="text-black text-sm">✳</span>
+                <span className="text-black text-sm">✱</span>
                 <span className="font-mono-tech text-xs sm:text-sm font-black text-black tracking-widest">
                   2026
                 </span>
-                <span className="text-black text-sm">✳</span>
+                <span className="text-black text-sm">✱</span>
               </React.Fragment>
             ))}
           </div>
@@ -205,13 +205,13 @@ export function WorkSection() {
           </div>
         </ScrollReveal>
 
-        {/* ── Commercial Poster Wall: Dense 6-Column Grid Matching Reference ── */}
+        {/* ── Commercial Poster Wall: 5-Column Grid with Increased Block Size & Sharp Edges ── */}
         <motion.div
           layout
           className={
             gridDensity === "dense"
-              ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-2.5 lg:gap-3"
-              : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
+              ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4.5"
+              : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6"
           }
         >
           <AnimatePresence mode="popLayout">
@@ -222,15 +222,15 @@ export function WorkSection() {
                 <motion.div
                   key={project.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                  initial={{ opacity: 0, scale: 0.96, y: 15 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.35, delay: Math.min(index * 0.025, 0.3) }}
+                  transition={{ duration: 0.35, delay: Math.min(index * 0.02, 0.25) }}
                   onClick={() => {
                     setActiveProject(project);
                   }}
                   data-cursor="view"
-                  className="group relative aspect-[3/4] sm:aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden bg-white border border-black/10 cursor-pointer transition-all duration-300 ease-out hover:border-black hover:shadow-[0_20px_45px_rgba(0,0,0,0.22)] hover:-translate-y-1 select-none shadow-sm glossy-shine-light glossy-rim-light"
+                  className="group relative aspect-[3/4] sm:aspect-[4/5] rounded-none overflow-hidden bg-[#111111] border border-white/15 cursor-pointer transition-all duration-300 ease-out hover:border-[#C8FF00] hover:shadow-[0_20px_50px_rgba(0,0,0,0.7)] hover:-translate-y-1 select-none shadow-sm glossy-shine-light"
                 >
                   {/* Artwork High-Res Image */}
                   <Image
@@ -238,22 +238,22 @@ export function WorkSection() {
                     alt={project.title}
                     fill
                     unoptimized={project.coverImage.startsWith("http")}
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 16vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
                   {/* Top-Down & Bottom-Up Vignette Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/60 opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/60 opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
 
-                  {/* ── Top Bar: Bookmark Button + Brand Pill ── */}
-                  <div className="absolute top-2 left-2 right-2 sm:top-2.5 sm:left-2.5 sm:right-2.5 flex items-center justify-between z-10 pointer-events-none">
+                  {/* ── Top Bar: Bookmark Button + Brand Pill (Sharp) ── */}
+                  <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between z-10 pointer-events-none">
                     {/* Interactive Bookmark Button */}
                     <button
                       onClick={(e) => toggleSave(e, project.id)}
-                      className={`pointer-events-auto p-1.5 sm:p-2 rounded-lg sm:rounded-xl backdrop-blur-md transition-all duration-200 hover:scale-110 active:scale-90 flex items-center justify-center ${
+                      className={`pointer-events-auto p-2 rounded-none backdrop-blur-md transition-all duration-200 hover:scale-110 active:scale-90 flex items-center justify-center ${
                         isSaved
-                          ? "bg-[#C8FF00] text-black shadow-md"
-                          : "bg-black/60 text-white/90 hover:text-white hover:bg-black/80 border border-white/20"
+                          ? "bg-[#C8FF00] text-black shadow-md border border-[#C8FF00]"
+                          : "bg-black/75 text-white/90 hover:text-white hover:bg-black/90 border border-white/20"
                       }`}
                       title={isSaved ? "Saved to collection" : "Save poster"}
                       aria-label="Bookmark"
@@ -264,36 +264,36 @@ export function WorkSection() {
                       />
                     </button>
 
-                    {/* Brand Pill */}
-                    <span className="font-mono-tech text-[9px] sm:text-[10px] tracking-wider uppercase bg-black/60 text-white px-2 py-0.5 rounded-md border border-white/20 backdrop-blur-md font-semibold">
+                    {/* Brand Pill (Sharp) */}
+                    <span className="font-mono-tech text-[9px] sm:text-[10px] tracking-widest uppercase bg-black/80 text-white px-2.5 py-1 rounded-none border border-white/25 backdrop-blur-md font-bold">
                       {project.brand}
                     </span>
                   </div>
 
-                  {/* ── Hover Quick-View Action Pill (Center Pop) ── */}
+                  {/* ── Hover Quick-View Action Pill (Sharp Center Pop) ── */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                    <div className="bg-[#C8FF00] text-black px-3 py-1.5 rounded-full font-display text-xs font-bold flex items-center gap-1 shadow-[0_4px_20px_rgba(0,0,0,0.25)] scale-90 group-hover:scale-100 transition-transform duration-200">
+                    <div className="bg-[#C8FF00] text-black px-4 py-2 rounded-none font-display text-xs font-black uppercase tracking-wider flex items-center gap-1.5 shadow-[0_4px_25px_rgba(200,255,0,0.4)] scale-90 group-hover:scale-100 transition-transform duration-200">
                       <span>VIEW SPEC</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
 
-                  {/* ── Bottom Content Overlay: Brand / Title / Category ── */}
-                  <div className="absolute bottom-0 inset-x-0 p-2.5 sm:p-3.5 z-10 flex flex-col justify-end">
-                    <div className="flex items-center justify-between gap-1 mb-0.5">
-                      <span className="font-mono-tech text-[9px] sm:text-[10px] text-[#C8FF00] font-bold tracking-widest uppercase truncate">
+                  {/* ── Bottom Content Overlay: Brand / Title / Category (All in Caps) ── */}
+                  <div className="absolute bottom-0 inset-x-0 p-3 sm:p-4 z-10 flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent">
+                    <div className="flex items-center justify-between gap-1 mb-1">
+                      <span className="font-mono-tech text-[10px] text-[#C8FF00] font-black tracking-widest uppercase truncate">
                         {project.brand}
                       </span>
-                      <span className="font-mono-tech text-[8px] sm:text-[9px] text-neutral-300 shrink-0 font-medium">
+                      <span className="font-mono-tech text-[9px] text-neutral-400 shrink-0 font-bold uppercase tracking-wider">
                         {project.duration || project.year}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-xs sm:text-sm font-bold text-white uppercase tracking-tight truncate group-hover:text-[#C8FF00] transition-colors duration-200">
+                    <h3 className="font-display text-sm sm:text-base font-bold text-white uppercase tracking-tight truncate group-hover:text-[#C8FF00] transition-colors duration-200">
                       {project.title}
                     </h3>
 
-                    <p className="font-mono-tech text-[9px] sm:text-[10px] text-neutral-300 truncate mt-0.5">
+                    <p className="font-mono-tech text-[10px] sm:text-[11px] text-neutral-300 uppercase tracking-tight truncate mt-0.5">
                       {project.subtitle}
                     </p>
                   </div>

@@ -145,10 +145,10 @@ export function HeroSection() {
                 <div className="absolute top-0 inset-x-0 h-2 bg-[#FF6A00] shadow-[0_2px_10px_rgba(255,106,0,0.3)]" />
 
                 <div className="pt-2 relative z-10">
-                  {/* Lowercase Chunky Headline */}
-                  <h2 className="font-sans-editorial text-4xl sm:text-5xl font-black lowercase tracking-tight leading-none text-[#0A0A0A] mb-4">
-                    about<br />
-                    <span className="text-[#0A0A0A] text-5xl sm:text-6xl font-black">me</span>
+                  {/* Uppercase Chunky Headline */}
+                  <h2 className="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight leading-none text-[#0A0A0A] mb-4">
+                    ABOUT<br />
+                    <span className="text-[#0A0A0A] text-5xl sm:text-6xl font-black">ME</span>
                   </h2>
 
                   {/* Editorial Bio Paragraph */}
@@ -229,10 +229,10 @@ export function HeroSection() {
                   </p>
                 </div>
 
-                {/* Distinctive Lowercase Blue "education" Signature */}
+                {/* Distinctive Uppercase Blue "EDUCATION" Signature */}
                 <div className="relative z-10 mt-6 pt-3 border-t border-black/10 text-center">
-                  <span className="font-sans-editorial text-2xl sm:text-3xl font-black text-[#0066FF] tracking-tight lowercase">
-                    education
+                  <span className="font-display text-2xl sm:text-3xl font-black text-[#0066FF] tracking-tight uppercase">
+                    EDUCATION
                   </span>
                 </div>
               </motion.div>
@@ -372,9 +372,9 @@ export function HeroSection() {
                 className="flex flex-col items-end gap-1.5"
               >
                 {/* Primary Name Capsule with Gloss */}
-                <div className="relative bg-white/95 backdrop-blur-xl text-black font-sans-editorial font-bold text-xs sm:text-sm px-3.5 py-1.5 rounded-xl shadow-[0_12px_28px_rgba(0,0,0,0.1)] border border-black/15 overflow-hidden">
+                <div className="relative bg-white/95 backdrop-blur-xl text-black font-display font-black text-xs sm:text-sm px-3.5 py-1.5 rounded-xl shadow-[0_12px_28px_rgba(0,0,0,0.1)] border border-black/15 overflow-hidden uppercase tracking-wider">
                   <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-black/[0.03] to-transparent pointer-events-none" />
-                  <span className="relative z-10">Ashwan Jakkinapally</span>
+                  <span className="relative z-10">ASHWAN JAKKINAPALLY</span>
                 </div>
 
                 {/* "Who's this?" Interactive Pill */}
@@ -793,8 +793,8 @@ export function HeroSection() {
                 <div className="absolute top-0 inset-x-0 h-2 bg-[#FF6A00] shadow-[0_2px_10px_rgba(255,106,0,0.3)]" />
 
                 <div className="pt-2 relative z-10">
-                  <h2 className="font-sans-editorial text-3xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-3">
-                    Work<br />Experience
+                  <h2 className="font-display text-3xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-3 uppercase">
+                    WORK<br />EXPERIENCE
                   </h2>
 
                   <div className="space-y-3">
@@ -860,17 +860,17 @@ export function HeroSection() {
                 <div className="absolute top-0 inset-x-0 h-2 bg-[#FF6A00] shadow-[0_2px_10px_rgba(255,106,0,0.3)]" />
 
                 <div className="pt-2 text-center flex flex-col items-center relative z-10">
-                  <h2 className="font-sans-editorial text-3xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-4">
-                    Approach
+                  <h2 className="font-display text-3xl sm:text-4xl font-black text-[#0A0A0A] tracking-tight leading-tight mb-4 uppercase">
+                    APPROACH
                   </h2>
 
                   {/* Stacked Clean Approach Disciplines matching Reference */}
-                  <div className="space-y-1.5 text-xs sm:text-sm font-sans-editorial font-semibold text-neutral-700">
-                    <p className="hover:text-black transition-colors cursor-default">Creative Direction</p>
-                    <p className="hover:text-black transition-colors cursor-default">Social Media & Reels</p>
-                    <p className="hover:text-black transition-colors cursor-default">Visual Storytelling</p>
-                    <p className="hover:text-black transition-colors cursor-default">Motion Graphics</p>
-                    <p className="hover:text-black transition-colors cursor-default">Color Finishing</p>
+                  <div className="space-y-1.5 text-xs sm:text-sm font-sans-editorial font-bold text-neutral-700 uppercase tracking-wide">
+                    <p className="hover:text-black transition-colors cursor-default">CREATIVE DIRECTION</p>
+                    <p className="hover:text-black transition-colors cursor-default">SOCIAL MEDIA & REELS</p>
+                    <p className="hover:text-black transition-colors cursor-default">VISUAL STORYTELLING</p>
+                    <p className="hover:text-black transition-colors cursor-default">MOTION GRAPHICS</p>
+                    <p className="hover:text-black transition-colors cursor-default">COLOR FINISHING</p>
                   </div>
                 </div>
               </motion.div>
