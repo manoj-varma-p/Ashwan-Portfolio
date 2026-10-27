@@ -99,8 +99,8 @@ export function Navbar() {
                     : "bg-black border-2 border-black text-[#C8FF00] shadow-md group-hover:scale-105"
                 }`}
               >
-                <span className="text-[#C8FF00] font-display font-black text-xl sm:text-2xl transition-transform duration-300 group-hover:scale-110">
-                  A
+                <span className="text-[#C8FF00] font-display font-black text-sm sm:text-base tracking-tight transition-transform duration-300 group-hover:scale-110">
+                  AJ
                 </span>
               </div>
               <div className="flex flex-col">

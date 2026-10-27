@@ -60,8 +60,8 @@ export function LoadingScreen() {
               transition={{ duration: 0.4 }}
               className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#282832] border border-white/15 flex items-center justify-center shadow-2xl relative overflow-hidden group"
             >
-              <span className="font-display text-4xl sm:text-5xl font-black text-[#C8FF00]">
-                A
+              <span className="font-display text-3xl sm:text-4xl font-black tracking-tight text-[#C8FF00]">
+                AJ
               </span>
               <div className="absolute inset-x-0 bottom-0 h-1 sm:h-1.5 bg-[#C8FF00]" />
             </motion.div>
