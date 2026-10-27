@@ -52,46 +52,46 @@ export function LoadingScreen() {
           <div className="absolute inset-0 bg-grid-tech opacity-10 pointer-events-none" />
           <div className="absolute inset-0 bg-halftone-subtle opacity-15 pointer-events-none" />
 
-          <div className="relative z-10 flex flex-col items-center gap-6 max-w-sm w-full text-center">
+          <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-7 max-w-3xl w-full text-center px-4">
             {/* Minimalist Monogram Badge */}
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.4 }}
-              className="w-16 h-16 rounded-2xl bg-[#282832] border border-white/15 flex items-center justify-center shadow-2xl relative overflow-hidden group"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#282832] border border-white/15 flex items-center justify-center shadow-2xl relative overflow-hidden group"
             >
-              <span className="font-display text-3xl font-black text-[#C8FF00]">
+              <span className="font-display text-4xl sm:text-5xl font-black text-[#C8FF00]">
                 A
               </span>
-              <div className="absolute inset-x-0 bottom-0 h-0.5 bg-[#C8FF00]" />
+              <div className="absolute inset-x-0 bottom-0 h-1 sm:h-1.5 bg-[#C8FF00]" />
             </motion.div>
 
             {/* Name & Title */}
-            <div>
-              <h1 className="font-display text-2xl sm:text-3xl font-black tracking-tight text-white uppercase">
+            <div className="w-full flex flex-col items-center">
+              <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white uppercase leading-none drop-shadow-2xl">
                 ASHWAN
               </h1>
-              <p className="font-mono-tech text-[10px] tracking-widest text-neutral-400 uppercase mt-1">
-                VIDEO EDITOR & GRAPHIC DESIGNER
+              <p className="font-mono-tech text-xs sm:text-sm md:text-base tracking-[0.25em] text-neutral-400 uppercase mt-3 sm:mt-4 font-semibold">
+                VIDEO EDITOR &amp; GRAPHIC DESIGNER
               </p>
             </div>
 
             {/* Sleek Progress Bar & Counter */}
-            <div className="w-56 mt-2">
+            <div className="w-72 sm:w-80 md:w-96 mt-2">
               <div className="flex items-center justify-between font-mono-tech text-xs text-neutral-400 font-semibold mb-2">
-                <span className="uppercase text-[10px] tracking-wider text-neutral-500">Loading</span>
+                <span className="uppercase text-[10px] tracking-wider text-neutral-500">Buffer</span>
                 <span className="text-[#C8FF00] font-black">{Math.min(Math.round(progress), 100)}%</span>
               </div>
-              <div className="w-full h-1 bg-[#282832] rounded-full overflow-hidden border border-white/10">
+              <div className="w-full h-1.5 sm:h-2 bg-[#282832] rounded-full overflow-hidden border border-white/10">
                 <motion.div
-                  className="h-full bg-[#C8FF00] shadow-[0_0_10px_rgba(200,255,0,0.8)]"
+                  className="h-full bg-[#C8FF00] shadow-[0_0_14px_rgba(200,255,0,0.9)]"
                   style={{ width: `${Math.min(progress, 100)}%` }}
                 />
               </div>
             </div>
 
             {/* Sub-label */}
-            <span className="font-mono-tech text-[9px] tracking-widest text-neutral-600 uppercase">
+            <span className="font-mono-tech text-[10px] sm:text-xs tracking-widest text-neutral-500 uppercase">
               PORTFOLIO 2026 // ARCHIVE
             </span>
           </div>
