@@ -10,7 +10,7 @@ import { useSmoothScroll } from "@/components/motion/SmoothScroll";
 import TextLoop from "@/components/ui/TextLoop";
 
 export function ThanksSection() {
-  const [likes, setLikes] = useState(85);
+  const [likes, setLikes] = useState(148);
   const [hasLiked, setHasLiked] = useState(false);
   const { scrollTo } = useSmoothScroll();
 
@@ -29,103 +29,16 @@ export function ThanksSection() {
   };
 
   return (
-    <footer className="relative w-full bg-[#1E1E22] text-[#F5F5F0] pt-24 pb-12 overflow-hidden border-t-2 border-white/10 select-none">
+    <footer className="relative w-full bg-[#1E1E22] text-[#F5F5F0] pt-20 pb-0 overflow-hidden border-t-2 border-white/10 select-none flex flex-col justify-between">
       
       {/* Background Yellow Line Grid */}
       <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
 
-      {/* Viewport Frame Container */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative flex flex-col items-center">
+      {/* ── Top Header Area: Appreciation & Social Links ── */}
+      <div className="max-w-[1400px] w-full mx-auto px-4 sm:px-6 relative z-20 flex flex-col items-center">
         
-        {/* Giant Outro Canvas */}
-        <div className="relative w-full min-h-[520px] sm:min-h-[640px] md:min-h-[720px] flex items-end justify-center overflow-hidden">
-          
-          {/* React Bits <TextLoop /> Ribbon Animation flowing behind subject cutout */}
-          <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
-            <div className="w-[140%] min-w-[900px] max-w-[1700px] flex items-center justify-center -translate-y-8 sm:-translate-y-12">
-              <TextLoop
-                text="THANK YOU"
-                shape="wave"
-                speed={85}
-                direction="forward"
-                separator="✦"
-                curviness={90}
-                tilt={-2}
-                fontSize={52}
-                fontWeight={900}
-                letterSpacing={3}
-                uppercase
-                ribbon
-                ribbonColor="#C8FF00"
-                color="#000000"
-                ribbonWidth={96}
-                edgeFade={0.15}
-                pauseOnHover={false}
-                scrollBoost={0.5}
-                className="w-full drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)]"
-              />
-            </div>
-          </div>
-
-          {/* Foreground Portrait Cutout Overlapping Typography */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.95, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full max-w-[320px] sm:max-w-[420px] md:max-w-[500px] h-[460px] sm:h-[580px] md:h-[650px] flex items-end justify-center pointer-events-none"
-          >
-            <div className="relative w-full h-full">
-              <Image
-                src="/images/portrait/ashwan.png"
-                alt="Ashwan - Thanks for Watching"
-                fill
-                sizes="(max-width: 768px) 320px, (max-width: 1200px) 450px, 500px"
-                className="object-contain object-bottom contrast-125 brightness-95 drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)]"
-              />
-            </div>
-          </motion.div>
-
-          {/* Technical Sub-bar Capsule */}
-          <ScrollReveal direction="up" delay={0.25} className="absolute bottom-3 inset-x-4 max-w-3xl mx-auto z-20 hidden sm:block">
-            <div className="flex items-center justify-between text-[10px] font-mono-tech text-black px-6 py-2.5 bg-white border-2 border-black rounded-full shadow-2xl font-black relative overflow-hidden glossy-shine-light glossy-rim-light group">
-              <div className="flex items-center gap-2.5">
-                <span className="font-black tracking-wider text-black">PROGRESS OVER PERFECTION</span>
-                <span className="opacity-40">•</span>
-                <a
-                  href={PROFILE_DATA.contact.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline transition-all duration-200"
-                >
-                  @{PROFILE_DATA.contact.instagramHandle}
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <a
-                  href={PROFILE_DATA.contact.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Direct WhatsApp Chat"
-                  className="hover:underline transition-all duration-200"
-                >
-                  {PROFILE_DATA.contact.phoneDisplay}
-                </a>
-                <span className="opacity-40">•</span>
-                <a
-                  href={`mailto:${PROFILE_DATA.contact.email}`}
-                  className="hover:underline transition-all duration-200"
-                >
-                  {PROFILE_DATA.contact.email}
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
-
-        </div>
-
-        {/* Appreciation / Like Badge */}
-        <ScrollReveal direction="up" delay={0.2} className="mt-10 flex flex-col items-center justify-center text-center z-20">
+        {/* Appreciation / Like Button & Stats */}
+        <ScrollReveal direction="up" delay={0.1} className="flex flex-col items-center justify-center text-center">
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={handleLike}
@@ -157,14 +70,50 @@ export function ThanksSection() {
                 💬 <strong className="text-white">12</strong>
               </span>
             </div>
-            <p className="font-mono-tech text-[10px] text-neutral-500 mt-2">
+            <p className="font-mono-tech text-[10px] text-neutral-500 mt-1">
               Published: Creative Portfolio Edition 2026
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Bottom Editorial Credits Line */}
-        <div className="w-full mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-tech text-neutral-400 z-20">
+        {/* Technical Sub-bar Capsule */}
+        <ScrollReveal direction="up" delay={0.18} className="mt-8 max-w-3xl w-full mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] font-mono-tech text-black px-6 py-3 bg-white border-2 border-black rounded-full shadow-2xl font-black relative overflow-hidden glossy-shine-light glossy-rim-light group">
+            <div className="flex items-center gap-2.5">
+              <span className="font-black tracking-wider text-black">PROGRESS OVER PERFECTION</span>
+              <span className="opacity-40">•</span>
+              <a
+                href={PROFILE_DATA.contact.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline transition-all duration-200"
+              >
+                @{PROFILE_DATA.contact.instagramHandle}
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <a
+                href={PROFILE_DATA.contact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Direct WhatsApp Chat"
+                className="hover:underline transition-all duration-200"
+              >
+                {PROFILE_DATA.contact.phoneDisplay}
+              </a>
+              <span className="opacity-40">•</span>
+              <a
+                href={`mailto:${PROFILE_DATA.contact.email}`}
+                className="hover:underline transition-all duration-200"
+              >
+                {PROFILE_DATA.contact.email}
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Editorial Credits & Back To Top Navigation Line */}
+        <div className="w-full mt-8 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono-tech text-neutral-400">
           <div className="flex items-center gap-3">
             <div className="w-2.5 h-2.5 rounded-full bg-[#C8FF00]" />
             <span className="text-white uppercase font-bold tracking-wider">
@@ -188,6 +137,58 @@ export function ThanksSection() {
         </div>
 
       </div>
+
+      {/* ── Bottom Section: Grand Finale Cutout Canvas with Flowing THANK YOU at very bottom ── */}
+      <div className="relative w-full mt-8 min-h-[480px] sm:min-h-[580px] md:min-h-[660px] flex items-end justify-center overflow-hidden z-10">
+        
+        {/* React Bits <TextLoop /> Ribbon Animation flowing behind subject cutout */}
+        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+          <div className="w-[140%] min-w-[900px] max-w-[1700px] flex items-center justify-center translate-y-4 sm:translate-y-2">
+            <TextLoop
+              text="THANK YOU"
+              shape="wave"
+              speed={85}
+              direction="forward"
+              separator="✦"
+              curviness={90}
+              tilt={-2}
+              fontSize={56}
+              fontWeight={900}
+              letterSpacing={3}
+              uppercase
+              ribbon
+              ribbonColor="#C8FF00"
+              color="#000000"
+              ribbonWidth={100}
+              edgeFade={0.15}
+              pauseOnHover={false}
+              scrollBoost={0.5}
+              className="w-full drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)]"
+            />
+          </div>
+        </div>
+
+        {/* Foreground Portrait Cutout Overlapping Typography Anchored at Bottom */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.95, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 w-full max-w-[320px] sm:max-w-[420px] md:max-w-[500px] h-[460px] sm:h-[560px] md:h-[640px] flex items-end justify-center pointer-events-none -mb-1"
+        >
+          <div className="relative w-full h-full">
+            <Image
+              src="/images/portrait/ashwan.png"
+              alt="Ashwan - Thank You for Visiting"
+              fill
+              sizes="(max-width: 768px) 320px, (max-width: 1200px) 450px, 500px"
+              className="object-contain object-bottom contrast-125 brightness-95 drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)]"
+            />
+          </div>
+        </motion.div>
+
+      </div>
+
     </footer>
   );
 }
