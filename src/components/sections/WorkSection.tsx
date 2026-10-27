@@ -209,8 +209,9 @@ export function WorkSection() {
                     setActiveProject(project);
                   }}
                   data-cursor="view"
-                  className="group relative aspect-[3/4] rounded-none overflow-hidden bg-[#282832] border border-white/15 hover:border-[#C8FF00] hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:-translate-y-1.5 transition-all duration-300 ease-out select-none cursor-pointer"
+                  className="group relative aspect-[3/4] rounded-none overflow-hidden bg-[#282832] border border-white/15 hover:border-[#C8FF00] hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:-translate-y-1.5 transition-all duration-300 ease-out select-none cursor-pointer"
                 >
+                  {/* Poster Image */}
                   <Image
                     src={project.coverImage}
                     alt={project.title}
@@ -219,6 +220,43 @@ export function WorkSection() {
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
+
+                  {/* 1. Anamorphic Lens Flare Shimmer Beam on Hover */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
+                    <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/20 to-transparent -rotate-45 translate-x-[-150%] group-hover:translate-x-[250%] transition-transform duration-1000 ease-in-out" />
+                    {/* Subtle Horizontal Anamorphic Streak */}
+                    <div className="absolute top-1/2 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#C8FF00]/40 to-transparent blur-[0.5px] -translate-y-1/2 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                  </div>
+
+                  {/* 2. Soft Edge Vignette on Hover */}
+                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[inset_0_0_35px_rgba(0,0,0,0.7)] z-10" />
+
+                  {/* 3. Camera Viewfinder Reticle Corners */}
+                  <div className="absolute inset-2.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
+                    <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-[#C8FF00]" />
+                    <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t border-r border-[#C8FF00]" />
+                    <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l border-[#C8FF00]" />
+                    <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-[#C8FF00]" />
+                  </div>
+
+                  {/* 4. Film HUD Header: Recording Dot + Timecode Counter */}
+                  <div className="absolute top-0 inset-x-0 p-3 flex items-center justify-between text-[10px] font-mono-tech tracking-wider text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-b from-black/75 to-transparent z-20 pointer-events-none">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                      <span className="font-extrabold text-[#C8FF00] tracking-widest text-[9px]">REC</span>
+                    </div>
+                    <span className="text-white/95 font-mono-tech text-[10px] font-bold tabular-nums">
+                      00:0{((index * 3 + 1) % 7) + 1}:{String((index * 13 + 7) % 60).padStart(2, "0")}:{String((index * 19 + 11) % 24).padStart(2, "0")}
+                    </span>
+                  </div>
+
+                  {/* 5. Minimalist Viewfinder Bottom Bar: Scope Tag & Resolution */}
+                  <div className="absolute bottom-0 inset-x-0 p-2.5 flex items-center justify-between text-[9px] font-mono-tech uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/85 via-black/40 to-transparent z-20 pointer-events-none text-neutral-300">
+                    <span className="text-[#C8FF00] font-bold">24 FPS // 4K RAW</span>
+                    <span className="text-white font-black flex items-center gap-1">
+                      VIEW ↗
+                    </span>
+                  </div>
                 </motion.div>
               );
             })}
