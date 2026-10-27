@@ -133,8 +133,8 @@ h1, h2, h3, h4, h5, h6, [data-title], .title-caps {
 
 .bg-grid-yellow {
   background-image: 
-    linear-gradient(to right, rgba(200, 255, 0, 0.18) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(200, 255, 0, 0.18) 1px, transparent 1px);
+    linear-gradient(to right, rgba(200, 255, 0, 0.115) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 255, 0, 0.115) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
