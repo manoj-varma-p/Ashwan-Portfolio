@@ -13,7 +13,7 @@ import { ThanksSection } from "@/components/sections/ThanksSection";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#050505] text-[#F5F5F0] overflow-x-hidden selection:bg-[#C8FF00] selection:text-black">
+    <main className="relative min-h-screen bg-[#1E1E22] text-[#F5F5F0] overflow-x-hidden selection:bg-[#C8FF00] selection:text-black">
       {/* Intro transition loader */}
       <LoadingScreen />
 

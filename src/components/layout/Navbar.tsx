@@ -66,7 +66,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 inset-x-0 z-50 pointer-events-none transition-all duration-300">
+      <header className="fixed top-0 inset-x-0 z-40 pointer-events-none transition-all duration-300">
         <div
           className={`w-full transition-all duration-500 ease-out ${
             isScrolled
@@ -79,7 +79,7 @@ export function Navbar() {
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
             className={`pointer-events-auto mx-auto transition-all duration-500 ease-out flex items-center justify-between ${
               isScrolled
-                ? "max-w-5xl bg-[#0A0A0A]/90 backdrop-blur-2xl border border-white/20 px-4 sm:px-6 py-2 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.85)]"
+                ? "max-w-5xl bg-[#1E1E22]/90 backdrop-blur-2xl border border-white/20 px-4 sm:px-6 py-2 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.85)]"
                 : "max-w-7xl bg-transparent border-transparent px-0 py-0 shadow-none"
             }`}
           >
@@ -269,7 +269,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl md:hidden pt-24 px-6 pb-8 flex flex-col justify-between overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#1E1E22]/98 backdrop-blur-2xl md:hidden pt-24 px-6 pb-8 flex flex-col justify-between overflow-y-auto"
           >
             {/* Top Meta Details */}
             <motion.div

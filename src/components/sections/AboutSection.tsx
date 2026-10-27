@@ -7,10 +7,10 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative w-full bg-[#080808] text-[#F5F5F0] py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
+    <section id="about" className="relative w-full bg-[#1E1E22] text-[#F5F5F0] py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
       
-      {/* Background Halftone & Technical Grid */}
-      <div className="absolute inset-0 bg-halftone-subtle opacity-25 pointer-events-none" />
+      {/* Background Yellow Line Grid */}
+      <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
       <div className="absolute top-12 right-8 font-mono-tech text-[10px] text-white/20 select-none hidden lg:block">
         SEC_01 // BIO_DATA & IDENTITY // 2026
       </div>
@@ -45,7 +45,7 @@ export function AboutSection() {
           <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
             {/* Quick Metadata Box */}
             <ScrollReveal direction="up" delay={0.16}>
-              <div className="p-6 rounded-3xl bg-[#111111] border border-white/10 space-y-4 transition-all duration-300 hover:border-white/25 shadow-xl glossy-shine glossy-rim">
+              <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 space-y-4 transition-all duration-300 hover:border-white/25 shadow-xl glossy-shine glossy-rim">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <span className="font-mono-tech text-xs text-neutral-400 font-medium uppercase tracking-wider">DISCIPLINE</span>
                   <span className="font-mono-tech text-xs font-bold text-white">Video Editor & Graphic Designer</span>
@@ -63,7 +63,7 @@ export function AboutSection() {
 
             {/* Languages Card */}
             <ScrollReveal direction="up" delay={0.24} distance={28} className="flex-1 flex flex-col">
-              <div className="flex-1 p-6 rounded-3xl bg-[#111111] border border-white/10 text-white flex flex-col justify-between transition-all duration-300 ease-out hover:border-white/20 hover:shadow-xl glossy-shine glossy-rim">
+              <div className="flex-1 p-6 rounded-3xl bg-[#282832] border border-white/10 text-white flex flex-col justify-between transition-all duration-300 ease-out hover:border-white/20 hover:shadow-xl glossy-shine glossy-rim">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono-tech text-xs text-neutral-400 uppercase tracking-wider font-bold">
@@ -107,7 +107,7 @@ export function AboutSection() {
             
             {/* Biography Card with Orange Top Rule */}
             <ScrollReveal direction="up" delay={0.18} distance={32}>
-              <div className="relative p-6 sm:p-8 rounded-3xl bg-[#101010] border border-white/10 shadow-2xl overflow-hidden group transition-all duration-300 hover:border-white/25 glossy-shine glossy-rim">
+              <div className="relative p-6 sm:p-8 rounded-3xl bg-[#282832] border border-white/10 shadow-2xl overflow-hidden group transition-all duration-300 hover:border-white/25 glossy-shine glossy-rim">
                 {/* Thin Editorial Orange Top Rule */}
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#FF6A00]" />
 

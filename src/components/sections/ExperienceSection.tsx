@@ -7,10 +7,10 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="relative w-full bg-[#070707] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
+    <section id="experience" className="relative w-full bg-[#1E1E22] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
       
-      {/* Background Halftone & Technical Grid */}
-      <div className="absolute inset-0 bg-halftone-subtle opacity-20 pointer-events-none" />
+      {/* Background Yellow Line Grid */}
+      <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -52,7 +52,7 @@ export function ExperienceSection() {
               </div>
 
               {/* Experience Card */}
-              <div className="p-6 sm:p-8 rounded-3xl bg-[#111111] border border-white/10 hover:border-[#C8FF00]/50 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 shadow-xl relative overflow-hidden glossy-shine glossy-rim group">
+              <div className="p-6 sm:p-8 rounded-3xl bg-[#282832] border border-white/10 hover:border-[#C8FF00]/50 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 shadow-xl relative overflow-hidden glossy-shine glossy-rim group">
                 
                 {/* Header Row */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-white/10">

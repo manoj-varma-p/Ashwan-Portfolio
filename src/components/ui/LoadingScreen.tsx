@@ -8,19 +8,32 @@ export function LoadingScreen() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Fast authentic intro count (reaches 100 in ~650ms, then fades out smoothly)
+    // Lock scroll during intro loading screen
+    document.body.style.overflow = "hidden";
+
+    const duration = 1500; // Exactly 1.5 seconds
+    const intervalTime = 30;
+    const step = 100 / (duration / intervalTime);
+
     const interval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
+        const next = prev + step;
+        if (next >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 200);
+          setTimeout(() => {
+            setLoading(false);
+            document.body.style.overflow = "auto";
+          }, 150);
           return 100;
         }
-        return prev + 12;
+        return next;
       });
-    }, 45);
+    }, intervalTime);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      document.body.style.overflow = "auto";
+    };
   }, []);
 
   return (
@@ -28,43 +41,59 @@ export function LoadingScreen() {
       {loading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 select-none"
+          exit={{
+            opacity: 0,
+            y: -25,
+            transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] }
+          }}
+          className="fixed inset-0 z-[99999] bg-[#1E1E22] text-[#F5F5F0] flex flex-col items-center justify-center p-6 select-none"
         >
-          {/* Central Monogram */}
-          <div className="flex flex-col items-center gap-4">
+          {/* Subtle background tech grid */}
+          <div className="absolute inset-0 bg-grid-tech opacity-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-halftone-subtle opacity-15 pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col items-center gap-6 max-w-sm w-full text-center">
+            {/* Minimalist Monogram Badge */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="w-16 h-16 rounded-2xl bg-black border-2 border-black flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
+              transition={{ duration: 0.4 }}
+              className="w-16 h-16 rounded-2xl bg-[#282832] border border-white/15 flex items-center justify-center shadow-2xl relative overflow-hidden group"
             >
-              <span className="font-display text-4xl font-black text-[#C8FF00]">A</span>
+              <span className="font-display text-3xl font-black text-[#C8FF00]">
+                A
+              </span>
+              <div className="absolute inset-x-0 bottom-0 h-0.5 bg-[#C8FF00]" />
             </motion.div>
 
-            <div className="text-center">
-              <h1 className="font-display text-3xl font-black tracking-tight text-black uppercase">
+            {/* Name & Title */}
+            <div>
+              <h1 className="font-display text-2xl sm:text-3xl font-black tracking-tight text-white uppercase">
                 ASHWAN
               </h1>
-              <p className="font-mono-tech text-[10px] tracking-widest text-[#52525B] uppercase mt-1">
-                LOADING 2026 REEL ARCHIVE
+              <p className="font-mono-tech text-[10px] tracking-widest text-neutral-400 uppercase mt-1">
+                VIDEO EDITOR & GRAPHIC DESIGNER
               </p>
             </div>
 
-            {/* Counter */}
-            <div className="w-48 mt-4">
-              <div className="flex justify-between font-mono-tech text-xs text-black font-bold mb-1.5">
-                <span>BUFFER</span>
-                <span>{Math.min(progress, 100)}%</span>
+            {/* Sleek Progress Bar & Counter */}
+            <div className="w-56 mt-2">
+              <div className="flex items-center justify-between font-mono-tech text-xs text-neutral-400 font-semibold mb-2">
+                <span className="uppercase text-[10px] tracking-wider text-neutral-500">Loading</span>
+                <span className="text-[#C8FF00] font-black">{Math.min(Math.round(progress), 100)}%</span>
               </div>
-              <div className="w-full h-1.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div className="w-full h-1 bg-[#282832] rounded-full overflow-hidden border border-white/10">
                 <motion.div
-                  className="h-full bg-black"
+                  className="h-full bg-[#C8FF00] shadow-[0_0_10px_rgba(200,255,0,0.8)]"
                   style={{ width: `${Math.min(progress, 100)}%` }}
                 />
               </div>
             </div>
+
+            {/* Sub-label */}
+            <span className="font-mono-tech text-[9px] tracking-widest text-neutral-600 uppercase">
+              PORTFOLIO 2026 // ARCHIVE
+            </span>
           </div>
         </motion.div>
       )}

@@ -16,10 +16,10 @@ export function ServicesSection() {
     PROFILE_DATA.services[0];
 
   return (
-    <section id="services" className="relative w-full bg-[#060606] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
+    <section id="services" className="relative w-full bg-[#1E1E22] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
       
-      {/* Background Ambience */}
-      <div className="absolute inset-0 bg-grid-tech opacity-20 pointer-events-none" />
+      {/* Background Yellow Line Grid */}
+      <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -60,7 +60,7 @@ export function ServicesSection() {
                       onFocus={() => setActiveServiceId(service.id)}
                       className={`group w-full text-left p-4 sm:p-5 rounded-2xl transition-all duration-300 ease-out relative border flex items-center justify-between active:scale-[0.99] glossy-shine glossy-rim ${
                         isActive
-                          ? "bg-[#141414] border-white/30 shadow-2xl translate-x-1"
+                          ? "bg-[#282832] border-white/30 shadow-2xl translate-x-1"
                           : "bg-transparent border-transparent hover:border-white/15 hover:bg-white/[0.04] hover:translate-x-1"
                       }`}
                     >
@@ -110,7 +110,7 @@ export function ServicesSection() {
           {/* Right Column: Kinetic Graphic Visualizer Card */}
           <div className="lg:col-span-5 flex">
             <ScrollReveal direction="up" delay={0.26} className="w-full h-full flex flex-col">
-              <div className="w-full h-full rounded-3xl bg-[#111111] border border-white/10 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl min-h-[440px] glossy-shine glossy-rim group">
+              <div className="w-full h-full rounded-3xl bg-[#282832] border border-white/10 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-2xl min-h-[440px] glossy-shine glossy-rim group">
                 {/* Visualizer Top Bar */}
                 <div className="flex items-center justify-between border-b border-white/10 pb-4 relative z-10">
                   <span className="font-mono-tech text-xs uppercase tracking-wider text-neutral-400 font-bold">

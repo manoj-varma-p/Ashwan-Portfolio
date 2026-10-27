@@ -55,10 +55,11 @@ export const PROFILE_DATA = {
   },
   contact: {
     email: "ashwanraojakkinapally@gmail.com",
-    phone: "+91 834 117 0665",
-    phoneDisplay: "+91 834 117 0665",
-    instagramHandle: "HUKUM@3133",
-    instagramUrl: "https://instagram.com", // Configurable: replace with verified profile URL
+    phone: "+91 83411 70665",
+    phoneDisplay: "+91 83411 70665",
+    whatsappUrl: "https://wa.me/918341170665",
+    instagramHandle: "ashwan_rao",
+    instagramUrl: "https://www.instagram.com/ashwan_rao?xtok=MTZxZGZyc3l2b2piYw%3D%3D",
     location: "Beeramguda, Telangana, India",
   },
   bio: {

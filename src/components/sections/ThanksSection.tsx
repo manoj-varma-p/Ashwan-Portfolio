@@ -7,6 +7,7 @@ import { ThumbsUp, ArrowUp } from "lucide-react";
 import { PROFILE_DATA } from "@/data/profile";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { useSmoothScroll } from "@/components/motion/SmoothScroll";
+import TextLoop from "@/components/ui/TextLoop";
 
 export function ThanksSection() {
   const [likes, setLikes] = useState(85);
@@ -28,10 +29,10 @@ export function ThanksSection() {
   };
 
   return (
-    <footer className="relative w-full bg-[#050505] text-[#F5F5F0] pt-24 pb-12 overflow-hidden border-t-2 border-white/10 select-none">
+    <footer className="relative w-full bg-[#1E1E22] text-[#F5F5F0] pt-24 pb-12 overflow-hidden border-t-2 border-white/10 select-none">
       
-      {/* Background Halftone & Grain */}
-      <div className="absolute inset-0 bg-halftone opacity-20 pointer-events-none" />
+      {/* Background Yellow Line Grid */}
+      <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
 
       {/* Viewport Frame Container */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative flex flex-col items-center">
@@ -39,41 +40,30 @@ export function ThanksSection() {
         {/* Giant Outro Canvas */}
         <div className="relative w-full min-h-[520px] sm:min-h-[640px] md:min-h-[720px] flex items-end justify-center overflow-hidden">
           
-          {/* Gigantic Scrolling Acid-Yellow "THANK YOU" Marquee behind subject */}
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-0 pointer-events-none overflow-hidden flex items-center">
-            <div className="animate-marquee-infinite-thanks">
-              {/* Track 1 */}
-              <div className="flex shrink-0 items-center gap-6 sm:gap-10 whitespace-nowrap pr-6 sm:pr-10">
-                {[1, 2, 3, 4].map((i) => (
-                  <span
-                    key={`thanks-track1-${i}`}
-                    className="font-display text-[17vw] sm:text-[15vw] md:text-[13vw] leading-[0.8] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:3px_#000000] drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)] flex items-center gap-6 sm:gap-10"
-                  >
-                    <span>THANK YOU</span>
-                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] text-[9vw] sm:text-[8vw]">
-                      ✱
-                    </span>
-                  </span>
-                ))}
-              </div>
-
-              {/* Track 2 (Seamless loop duplicate) */}
-              <div
-                className="flex shrink-0 items-center gap-6 sm:gap-10 whitespace-nowrap pr-6 sm:pr-10"
-                aria-hidden="true"
-              >
-                {[1, 2, 3, 4].map((i) => (
-                  <span
-                    key={`thanks-track2-${i}`}
-                    className="font-display text-[17vw] sm:text-[15vw] md:text-[13vw] leading-[0.8] tracking-tighter text-[#C8FF00] font-black uppercase select-none [-webkit-text-stroke:2px_#000000] sm:[-webkit-text-stroke:3px_#000000] drop-shadow-[0_15px_35px_rgba(0,0,0,0.9)] flex items-center gap-6 sm:gap-10"
-                  >
-                    <span>THANK YOU</span>
-                    <span className="text-black [-webkit-text-stroke:2px_#C8FF00] text-[9vw] sm:text-[8vw]">
-                      ✱
-                    </span>
-                  </span>
-                ))}
-              </div>
+          {/* React Bits <TextLoop /> Ribbon Animation flowing behind subject cutout */}
+          <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+            <div className="w-[140%] min-w-[900px] max-w-[1700px] flex items-center justify-center -translate-y-8 sm:-translate-y-12">
+              <TextLoop
+                text="THANK YOU"
+                shape="wave"
+                speed={85}
+                direction="forward"
+                separator="✦"
+                curviness={90}
+                tilt={-2}
+                fontSize={52}
+                fontWeight={900}
+                letterSpacing={3}
+                uppercase
+                ribbon
+                ribbonColor="#C8FF00"
+                color="#000000"
+                ribbonWidth={96}
+                edgeFade={0.15}
+                pauseOnHover={false}
+                scrollBoost={0.5}
+                className="w-full drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)]"
+              />
             </div>
           </div>
 
@@ -113,7 +103,10 @@ export function ThanksSection() {
               </div>
               <div className="flex items-center gap-3">
                 <a
-                  href={`tel:${PROFILE_DATA.contact.phone.replace(/\s+/g, "")}`}
+                  href={PROFILE_DATA.contact.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Direct WhatsApp Chat"
                   className="hover:underline transition-all duration-200"
                 >
                   {PROFILE_DATA.contact.phoneDisplay}

@@ -9,13 +9,13 @@ export function ToolsSection() {
   const [activePipelineStep, setActivePipelineStep] = useState(2);
 
   return (
-    <section id="tools" className="relative w-full bg-[#080808] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
-      
-      {/* Background Halftone */}
-      <div className="absolute inset-0 bg-halftone-subtle opacity-20 pointer-events-none" />
+    <section id="tools" className="relative w-full bg-[#1E1E22] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
+
+      {/* Background Yellow Line Grid */}
+      <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
+
         {/* Centered Section Header */}
         <ScrollReveal direction="up" delay={0.1}>
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -47,14 +47,14 @@ export function ToolsSection() {
               distance={28}
               className="h-full"
             >
-              <div className="h-full p-6 rounded-3xl bg-[#111111] border border-white/10 hover:border-white/30 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1.5 group flex flex-col justify-between shadow-xl relative overflow-hidden glossy-shine glossy-rim">
+              <div className="h-full p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-white/30 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1.5 group flex flex-col justify-between shadow-xl relative overflow-hidden glossy-shine glossy-rim">
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     {/* Stylized Adobe / Tool Monogram Icon */}
                     <div
                       className="w-14 h-14 rounded-2xl flex items-center justify-center font-display font-black text-2xl border border-white/15 shadow-md transition-all duration-300 ease-out group-hover:scale-110"
                       style={{
-                        backgroundColor: "#181818",
+                        backgroundColor: "#202026",
                         color: tool.accent,
                       }}
                     >
@@ -86,8 +86,8 @@ export function ToolsSection() {
 
         {/* Creative Workflow Pipeline Timeline */}
         <ScrollReveal direction="up" delay={0.2}>
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#101010] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
-            
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#282832] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
+
             <div className="text-center max-w-2xl mx-auto mb-10 pb-6 border-b border-white/10">
               <span className="font-mono-tech text-xs text-[#FF6A00] tracking-widest uppercase font-bold block mb-1">
                 POST-PRODUCTION BLUEPRINT
@@ -110,24 +110,21 @@ export function ToolsSection() {
                   <button
                     key={step.step}
                     onClick={() => setActivePipelineStep(index)}
-                    className={`p-4 rounded-2xl text-left transition-all duration-300 ease-out border flex flex-col justify-between min-h-[175px] cursor-pointer relative overflow-hidden group ${
-                      isCurrent
+                    className={`p-4 rounded-2xl text-left transition-all duration-300 ease-out border flex flex-col justify-between min-h-[175px] cursor-pointer relative overflow-hidden group ${isCurrent
                         ? "z-10 bg-white text-black border-2 border-white shadow-[0_15px_30px_rgba(255,255,255,0.2)] scale-[1.04] glossy-shine-light glossy-rim-light"
-                        : "bg-[#161616] text-neutral-300 border-white/10 hover:border-white/30 hover:-translate-y-0.5 glossy-shine glossy-rim"
-                    }`}
+                        : "bg-[#22222A] text-neutral-300 border-white/10 hover:border-white/30 hover:-translate-y-0.5 glossy-shine glossy-rim"
+                      }`}
                   >
                     <div className="flex items-center justify-between mb-4">
                       <span
-                        className={`font-mono-tech text-xs font-black transition-colors duration-200 ${
-                          isCurrent ? "text-black" : "text-[#C8FF00]"
-                        }`}
+                        className={`font-mono-tech text-xs font-black transition-colors duration-200 ${isCurrent ? "text-black" : "text-[#C8FF00]"
+                          }`}
                       >
                         {step.step}
                       </span>
                       <span
-                        className={`font-mono-tech text-[9px] uppercase px-1.5 py-0.5 rounded transition-colors duration-200 font-extrabold ${
-                          isCurrent ? "bg-black text-[#C8FF00]" : "bg-white/10 text-neutral-300"
-                        }`}
+                        className={`font-mono-tech text-[9px] uppercase px-1.5 py-0.5 rounded transition-colors duration-200 font-extrabold ${isCurrent ? "bg-black text-[#C8FF00]" : "bg-white/10 text-neutral-300"
+                          }`}
                       >
                         PHASE
                       </span>
@@ -135,16 +132,14 @@ export function ToolsSection() {
 
                     <div>
                       <h4
-                        className={`font-display text-xl sm:text-2xl font-black uppercase tracking-tight transition-colors duration-200 ${
-                          isCurrent ? "text-black" : "text-white"
-                        }`}
+                        className={`font-display text-xl sm:text-2xl font-black uppercase tracking-tight transition-colors duration-200 ${isCurrent ? "text-black" : "text-white"
+                          }`}
                       >
                         {step.label}
                       </h4>
                       <p
-                        className={`text-[11px] font-sans-editorial mt-1 leading-tight transition-colors duration-200 ${
-                          isCurrent ? "text-neutral-700 font-medium" : "text-neutral-400"
-                        }`}
+                        className={`text-[11px] font-sans-editorial mt-1 leading-tight transition-colors duration-200 ${isCurrent ? "text-neutral-700 font-medium" : "text-neutral-400"
+                          }`}
                       >
                         {step.detail}
                       </p>

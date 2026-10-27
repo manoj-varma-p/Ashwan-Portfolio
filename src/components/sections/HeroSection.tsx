@@ -68,8 +68,8 @@ export function HeroSection() {
     copyToClipboard(PROFILE_DATA.contact.phone);
     setCopiedPhone(true);
     setTimeout(() => {
-      window.location.href = `tel:${PROFILE_DATA.contact.phone.replace(/\s+/g, "")}`;
-    }, 600);
+      window.open(PROFILE_DATA.contact.whatsappUrl, "_blank");
+    }, 300);
   };
 
   // Dock items definition for clean staggered wave reveal
@@ -473,10 +473,13 @@ export function HeroSection() {
                       />
                     </div>
 
-                    {/* Phone Number */}
+                    {/* Phone Number / WhatsApp Direct */}
                     <a
-                      href={`tel:${PROFILE_DATA.contact.phone.replace(/\s+/g, "")}`}
-                      className="font-mono-tech text-xs sm:text-sm font-bold tracking-tight text-black hover:text-neutral-700 transition-colors relative z-10"
+                      href={PROFILE_DATA.contact.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Chat directly on WhatsApp"
+                      className="font-mono-tech text-xs sm:text-sm font-bold tracking-tight text-black hover:text-emerald-700 transition-colors relative z-10"
                     >
                       {PROFILE_DATA.contact.phoneDisplay}
                     </a>

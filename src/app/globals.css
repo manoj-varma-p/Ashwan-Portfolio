@@ -2,9 +2,9 @@
 
 @layer base {
   :root {
-    --bg-primary: #050505;
-    --bg-secondary: #0A0A0A;
-    --bg-surface: #141414;
+    --bg-primary: #1E1E22;
+    --bg-secondary: #26262C;
+    --bg-surface: #2E2E36;
     --lime: #C8FF00;
     --lime-bright: #DFFF18;
     --lime-muted: #849E0F;
@@ -131,17 +131,24 @@ h1, h2, h3, h4, h5, h6, [data-title], .title-caps {
   background-size: 40px 40px;
 }
 
+.bg-grid-yellow {
+  background-image: 
+    linear-gradient(to right, rgba(200, 255, 0, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 255, 0, 0.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080808;
+  background: #1E1E22;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #3A3A44;
   border-radius: 3px;
 }
 

@@ -41,9 +41,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative w-full bg-[#050505] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
+    <section id="contact" className="relative w-full bg-[#1E1E22] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
       
-      {/* Background Ambience */}
+      {/* Background Yellow Line Grid & Ambience */}
+      <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C8FF00]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -106,36 +107,51 @@ export function ContactSection() {
             </div>
 
             {/* Phone & WhatsApp Card */}
-            <div className="p-6 rounded-3xl bg-[#101010] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
+            <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono-tech text-xs text-neutral-400 uppercase tracking-wider flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#C8FF00]" />
                   PHONE / WHATSAPP
                 </span>
-                <span className="font-mono-tech text-[10px] text-neutral-400">
-                  IST (UTC+5:30)
+                <span className="font-mono-tech text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  ONLINE NOW
                 </span>
               </div>
 
               <div className="flex items-center justify-between gap-3">
                 <a
-                  href={`tel:${PROFILE_DATA.contact.phone.replace(/\s+/g, "")}`}
+                  href={PROFILE_DATA.contact.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-mono-tech text-lg sm:text-xl font-bold text-white group-hover:text-[#C8FF00] transition-colors duration-200"
+                  title="Direct WhatsApp Chat"
                 >
                   {PROFILE_DATA.contact.phoneDisplay}
                 </a>
-                <button
-                  onClick={handleCopyPhone}
-                  className="p-2.5 rounded-full bg-white/10 hover:bg-[#C8FF00] hover:text-black text-white transition-all duration-200 hover:scale-105 active:scale-95 shrink-0"
-                  title="Copy phone number"
-                >
-                  {copiedPhone ? <Check className="w-4 h-4 text-[#C8FF00]" /> : <Copy className="w-4 h-4" />}
-                </button>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={PROFILE_DATA.contact.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500 hover:text-black font-mono-tech text-xs font-bold transition-all duration-200 flex items-center gap-1.5"
+                    title="Direct WhatsApp Chat"
+                  >
+                    <span>WHATSAPP</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                  <button
+                    onClick={handleCopyPhone}
+                    className="p-2.5 rounded-full bg-white/10 hover:bg-[#C8FF00] hover:text-black text-white transition-all duration-200 hover:scale-105 active:scale-95 shrink-0"
+                    title="Copy phone number"
+                  >
+                    {copiedPhone ? <Check className="w-4 h-4 text-[#C8FF00]" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Instagram Social Tile */}
-            <div className="p-6 rounded-3xl bg-[#101010] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
+            <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono-tech text-xs text-neutral-400 uppercase tracking-wider flex items-center gap-2">
                   <InstagramIcon className="w-4 h-4 text-[#FF6A00]" />
@@ -148,9 +164,14 @@ export function ContactSection() {
 
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="font-display text-2xl font-black text-white group-hover:text-[#C8FF00] transition-colors duration-200">
-                    {PROFILE_DATA.contact.instagramHandle}
-                  </span>
+                  <a
+                    href={PROFILE_DATA.contact.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-display text-2xl font-black text-white group-hover:text-[#C8FF00] transition-colors duration-200 hover:underline"
+                  >
+                    @{PROFILE_DATA.contact.instagramHandle}
+                  </a>
                   <p className="font-mono-tech text-xs text-neutral-400 mt-0.5">
                     Behind-the-scenes cuts & visual experiments
                   </p>
@@ -168,7 +189,7 @@ export function ContactSection() {
             </div>
 
             {/* Location Tile */}
-            <div className="p-6 rounded-3xl bg-[#101010] border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-4 shadow-xl relative overflow-hidden glossy-shine glossy-rim group">
+            <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-4 shadow-xl relative overflow-hidden glossy-shine glossy-rim group">
               <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-[#C8FF00]">
                 <MapPin className="w-5 h-5" />
               </div>
@@ -187,7 +208,7 @@ export function ContactSection() {
           {/* Right Column: Interactive Direct Email Composer */}
           <div className="lg:col-span-7">
             <ScrollReveal direction="up" delay={0.26}>
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#0F0F0F] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[#282832] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
               <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
                 <span className="font-display text-2xl uppercase tracking-tight text-white">
                   Start a Commission
@@ -210,7 +231,7 @@ export function ContactSection() {
                       placeholder="e.g. John Doe / Studio"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-[#181818] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
+                      className="w-full bg-[#202026] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
                     />
                   </div>
                   <div>
@@ -223,7 +244,7 @@ export function ContactSection() {
                       placeholder="e.g. client@brand.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#181818] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
+                      className="w-full bg-[#202026] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
                     />
                   </div>
                 </div>
@@ -235,7 +256,7 @@ export function ContactSection() {
                   <select
                     value={formData.projectType}
                     onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                    className="w-full bg-[#181818] border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
+                    className="w-full bg-[#202026] border border-white/15 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
                   >
                     <option value="Wedding Teaser / Film">Wedding Teaser / Film Cut</option>
                     <option value="Short-Form Reels & Shorts">Viral Reels & Shorts (9:16)</option>
@@ -256,7 +277,7 @@ export function ContactSection() {
                     placeholder="Tell Ashwan about your footage, deadline, music references, and goals..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#181818] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
+                    className="w-full bg-[#202026] border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#C8FF00] focus:ring-1 focus:ring-[#C8FF00]/30 transition-all duration-200"
                   />
                 </div>
 
