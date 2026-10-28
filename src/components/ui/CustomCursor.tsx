@@ -1,10 +1,28 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useSyncExternalStore } from "react";
 import { motion, useSpring } from "motion/react";
 
+const emptySubscribe = () => () => {};
+
 export function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
+  const isTouchDevice = useSyncExternalStore(
+    (callback: () => void) => {
+      if (typeof window === "undefined") return () => {};
+      const mq = window.matchMedia("(pointer: coarse)");
+      mq.addEventListener("change", callback);
+      return () => mq.removeEventListener("change", callback);
+    },
+    () => (typeof window !== "undefined" ? window.matchMedia("(pointer: coarse)").matches : true),
+    () => true
+  );
+
   const [cursorType, setCursorType] = useState<"default" | "view" | "drag" | "hover">("default");
   const [isVisible, setIsVisible] = useState(false);
 
@@ -15,18 +33,16 @@ export function CustomCursor() {
   const dotY = useSpring(0, { damping: 40, stiffness: 600 });
 
   useEffect(() => {
-    // Only enable on non-touch devices
-    if (window.matchMedia("(pointer: coarse)").matches) {
+    if (!isMounted || isTouchDevice) {
       return;
     }
-    setMounted(true);
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
       dotX.set(e.clientX);
       dotY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
 
       const target = e.target as HTMLElement | null;
       if (!target) return;
@@ -59,9 +75,9 @@ export function CustomCursor() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [mouseX, mouseY, dotX, dotY, isVisible]);
+  }, [isMounted, isTouchDevice, mouseX, mouseY, dotX, dotY]);
 
-  if (!mounted || !isVisible) return null;
+  if (!isMounted || isTouchDevice || !isVisible) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">

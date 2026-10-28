@@ -48,9 +48,15 @@ export function GlossyCard({
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
       className={`group relative overflow-hidden transition-all duration-300 ease-out ${
+        shine
+          ? variant === "light"
+            ? "glossy-shine-light"
+            : "glossy-shine"
+          : ""
+      } ${
         variant === "light"
-          ? "glossy-shine-light glossy-rim-light hover:shadow-[0_25px_50px_rgba(0,0,0,0.18)]"
-          : "glossy-shine glossy-rim hover:shadow-[0_25px_55px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.3)]"
+          ? "glossy-rim-light hover:shadow-[0_25px_50px_rgba(0,0,0,0.18)]"
+          : "glossy-rim hover:shadow-[0_25px_55px_rgba(0,0,0,0.7),inset_0_1px_2px_rgba(255,255,255,0.3)]"
       } ${className}`}
       {...props}
     >

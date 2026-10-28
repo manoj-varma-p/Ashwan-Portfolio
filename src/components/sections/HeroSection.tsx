@@ -12,7 +12,6 @@ import {
   MapPin,
   Phone,
   PhoneOff,
-  AlertTriangle,
 } from "lucide-react";
 import { PROFILE_DATA } from "@/data/profile";
 import { copyToClipboard } from "@/lib/utils";

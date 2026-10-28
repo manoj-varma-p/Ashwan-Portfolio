@@ -25,16 +25,17 @@ class SoundEngine {
     // No-op
   }
 
-  public play(_sound: SoundType) {
-    // No-op: Completely silent
+  public play(sound: SoundType) {
+    void sound;
   }
 
-  public triggerHaptic(_type: HapticType = "light") {
-    // No-op
+  public triggerHaptic(type: HapticType = "light") {
+    void type;
   }
 
-  public feedback(_sound: SoundType, _haptic: HapticType = "light") {
-    // No-op: Completely silent
+  public feedback(sound: SoundType, haptic: HapticType = "light") {
+    void sound;
+    void haptic;
   }
 
   public toggleMute(): boolean {

@@ -11,23 +11,11 @@ export function AboutSection() {
       
       {/* Background Yellow Line Grid */}
       <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
-      <div className="absolute top-12 right-8 font-mono-tech text-[10px] text-white/20 select-none hidden lg:block">
-        SEC_01 // BIO_DATA & IDENTITY // 2026
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Top Centered Section Header */}
         <ScrollReveal direction="up" delay={0.08} distance={20}>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-[#C8FF00]" />
-              <span className="font-mono-tech text-xs uppercase tracking-widest text-[#C8FF00] font-bold">
-                01 — CREATIVE IDENTITY
-              </span>
-              <div className="w-8 h-[2px] bg-[#C8FF00]" />
-            </div>
-
             <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase text-white leading-tight mb-4">
               ABOUT <span className="text-[#C8FF00]">ME.</span>
             </h2>
@@ -48,7 +36,7 @@ export function AboutSection() {
               <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 space-y-4 transition-all duration-300 hover:border-white/25 shadow-xl glossy-shine glossy-rim">
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <span className="font-mono-tech text-xs text-neutral-400 font-medium uppercase tracking-wider">DISCIPLINE</span>
-                  <span className="font-mono-tech text-xs font-bold text-white">Video Editor & Graphic Designer</span>
+                  <span className="font-mono-tech text-xs font-bold text-white">{PROFILE_DATA.title}</span>
                 </div>
                 <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <span className="font-mono-tech text-xs text-neutral-400 font-medium uppercase tracking-wider">BASED IN</span>
@@ -56,7 +44,7 @@ export function AboutSection() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="font-mono-tech text-xs text-neutral-400 font-medium uppercase tracking-wider">CURRENT ROLE</span>
-                  <span className="font-mono-tech text-xs font-bold text-white">TAC — The Art Code</span>
+                  <span className="font-mono-tech text-xs font-bold text-white">{PROFILE_DATA.experiences[0]?.company || "TAC — The Art Code"}</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -73,24 +61,25 @@ export function AboutSection() {
                   </div>
 
                   <div className="space-y-2.5 mt-3">
-                    <div className="flex items-center justify-between pb-2 border-b border-white/5">
-                      <span className="font-bold text-sm text-white">Telugu</span>
-                      <span className="font-mono-tech text-[10px] bg-white text-black px-2 py-0.5 rounded font-extrabold shadow-sm">
-                        Native
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between pb-2 border-b border-white/5">
-                      <span className="font-bold text-sm text-white">Hindi</span>
-                      <span className="font-mono-tech text-[10px] text-neutral-400 font-medium">
-                        Fluent
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-sm text-white">English</span>
-                      <span className="font-mono-tech text-[10px] text-neutral-400 font-medium">
-                        Professional
-                      </span>
-                    </div>
+                    {PROFILE_DATA.languages.map((lang, idx) => (
+                      <div
+                        key={lang.name}
+                        className={`flex items-center justify-between ${
+                          idx < PROFILE_DATA.languages.length - 1 ? "pb-2 border-b border-white/5" : ""
+                        }`}
+                      >
+                        <span className="font-bold text-sm text-white">{lang.name}</span>
+                        <span
+                          className={`font-mono-tech text-[10px] px-2 py-0.5 rounded ${
+                            lang.native
+                              ? "bg-white text-black font-extrabold shadow-sm"
+                              : "text-neutral-400 font-medium"
+                          }`}
+                        >
+                          {lang.native ? "Native" : lang.level.replace(" Proficiency", "").replace(" Working", "")}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -123,7 +112,7 @@ export function AboutSection() {
 
                 {/* Verified Editorial Bio with Highlighted Key Terms */}
                 <blockquote className="text-base sm:text-xl font-sans-editorial font-medium leading-relaxed text-[#F5F5F0] tracking-tight">
-                  &ldquo;I’m Ashwan, a passionate{" "}
+                  &ldquo;I&apos;m Ashwan, a passionate{" "}
                   <span className="bg-[#C8FF00] text-black px-1.5 py-0.5 rounded font-black">
                     VIDEO EDITOR
                   </span>{" "}
@@ -141,7 +130,7 @@ export function AboutSection() {
                 <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="font-mono-tech text-xs text-[#969696]">
+                    <span className="font-mono-tech text-xs text-neutral-400">
                       Status: Pacing Every Frame With Purpose
                     </span>
                   </div>

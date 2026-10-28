@@ -2233,23 +2233,25 @@ export default function FlyingButton({
         jetCount === 1 ? 50 : 50 + spread * 100 * ((2 * k) / (jetCount - 1) - 1)
       )
     : [];
-  propsRef.current = {
-    size,
-    altitude,
-    hoverTime,
-    jets: jetCount,
-    thrusters: Boolean(thrusters),
-    trigger,
-    carryCursor,
-    ramp: Boolean(ramp),
-    smoke,
-    turbulence,
-    wobble,
-    thrustColor: thrust,
-    smokeColor: smokeTone,
-    theme,
-    onClick
-  };
+  useEffect(() => {
+    propsRef.current = {
+      size,
+      altitude,
+      hoverTime,
+      jets: jetCount,
+      thrusters: Boolean(thrusters),
+      trigger,
+      carryCursor,
+      ramp: Boolean(ramp),
+      smoke,
+      turbulence,
+      wobble,
+      thrustColor: thrust,
+      smokeColor: smokeTone,
+      theme,
+      onClick
+    };
+  });
 
   useEffect(() => {
     if (!rootRef.current || !canvasRef.current || !buttonRef.current) return;

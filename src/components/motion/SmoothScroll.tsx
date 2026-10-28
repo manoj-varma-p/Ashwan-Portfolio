@@ -39,14 +39,16 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     });
 
     lenisRef.current = lenis;
-    setLenisInstance(lenis);
 
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
-    const animId = requestAnimationFrame(raf);
+    const animId = requestAnimationFrame((time) => {
+      setLenisInstance(lenis);
+      raf(time);
+    });
 
     // Global smooth anchor link click handler ("Scroll to View")
     const handleAnchorClick = (e: MouseEvent) => {

@@ -16,11 +16,15 @@ import {
 } from "@/data/projects";
 import { ProjectOverlay } from "@/components/projects/ProjectOverlay";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { VideoWorkLine } from "@/components/sections/VideoWorkLine";
+import { VIDEOS } from "@/data/videos";
+import { Film, Image as ImageIcon, Sparkles } from "lucide-react";
 
 export function WorkSection() {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>("All");
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
   const [gridDensity, setGridDensity] = useState<"dense" | "curated">("dense");
+  const [mediaType, setMediaType] = useState<"all" | "videos" | "images">("all");
 
   const filteredProjects =
     selectedCategory === "All"
@@ -90,17 +94,70 @@ export function WorkSection() {
         </div>
       </div>
 
-      <div className="max-w-[1680px] mx-auto px-3 sm:px-6 lg:px-8">
-        {/* ── Section Header (Centered) ── */}
+      
+      {/* ── 03. Master Work Section Header ── */}
+      <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+        <ScrollReveal direction="up" delay={0.05}>
+          
+
+          <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-tight mb-4">
+            SELECTED <span className="text-[#C8FF00]">WORK.</span>
+          </h2>
+
+          <p className="font-mono-tech text-xs sm:text-sm text-neutral-400 max-w-2xl mx-auto leading-relaxed mb-8">
+            Complete archive of commercial video edits, motion reels, and key art posters in one unified showcase.
+          </p>
+
+          {/* Master Media View Switcher */}
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-full bg-[#24242C] border border-white/15 font-mono-tech text-xs shadow-xl">
+            <button
+              onClick={() => setMediaType("all")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer ${
+                mediaType === "all"
+                  ? "bg-[#C8FF00] text-black font-black shadow-md scale-105"
+                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>ALL WORK ({VIDEOS.length + PROJECTS.length})</span>
+            </button>
+
+            <button
+              onClick={() => setMediaType("videos")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer ${
+                mediaType === "videos"
+                  ? "bg-white text-black font-black shadow-md scale-105"
+                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              <Film className="w-3.5 h-3.5" />
+              <span>VIDEOS & REELS ({VIDEOS.length})</span>
+            </button>
+
+            <button
+              onClick={() => setMediaType("images")}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer ${
+                mediaType === "images"
+                  ? "bg-white text-black font-black shadow-md scale-105"
+                  : "text-neutral-400 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              <ImageIcon className="w-3.5 h-3.5" />
+              <span>POSTERS & IMAGES ({PROJECTS.length})</span>
+            </button>
+          </div>
+        </ScrollReveal>
+      </div>
+
+      {/* ── 03.1 Video Showcase ── */}
+      {(mediaType === "all" || mediaType === "videos") && <VideoWorkLine />}
+
+      {(mediaType === "all" || mediaType === "images") && (
+      <div className="max-w-[1680px] mx-auto px-3 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/10">
+        {/* ── Section Header: Poster Gallery (Centered) ── */}
         <ScrollReveal direction="up" delay={0.1}>
           <div className="text-center max-w-4xl mx-auto mb-10">
-            <div className="inline-flex items-center justify-center gap-3 mb-3">
-              <span className="w-8 h-[2px] bg-[#C8FF00]" />
-              <span className="font-mono-tech text-xs uppercase tracking-widest text-[#C8FF00] font-bold">
-                02 // COMMERCIAL ARCHIVE & KEY VISUALS
-              </span>
-              <span className="w-8 h-[2px] bg-[#C8FF00]" />
-            </div>
+            
             <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-6">
               POSTER <span className="text-white underline decoration-[#C8FF00] decoration-4 sm:decoration-6 underline-offset-4 sm:underline-offset-6">GALLERY.</span>
             </h2>
@@ -262,7 +319,10 @@ export function WorkSection() {
             })}
           </AnimatePresence>
         </motion.div>
+      </div>
+      )}
 
+      <div className="max-w-[1680px] mx-auto px-3 sm:px-6 lg:px-8">
         {/* ── Bottom Footer Quote & Collaboration Prompt ── */}
         <ScrollReveal direction="up" delay={0.2}>
           <div className="mt-16 pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">

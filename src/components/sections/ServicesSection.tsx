@@ -26,14 +26,6 @@ export function ServicesSection() {
         {/* Centered Section Header */}
         <ScrollReveal direction="up" delay={0.1}>
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <div className="inline-flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-[#C8FF00]" />
-              <span className="font-mono-tech text-xs uppercase tracking-widest text-[#C8FF00] font-bold">
-                03 — CAPABILITIES & CRAFT
-              </span>
-              <div className="w-8 h-[2px] bg-[#C8FF00]" />
-            </div>
-
             <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-white leading-tight mb-4">
               WHAT I BRING <span className="text-[#C8FF00]">TO THE FRAME.</span>
             </h2>
