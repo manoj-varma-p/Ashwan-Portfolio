@@ -51,9 +51,11 @@ export function VideoCard({
     if (onExpand) onExpand();
   };
 
-  const thumbUrl = imgError
-    ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`
-    : `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`;
+  const thumbUrl =
+    video.thumbnailUrl ||
+    (imgError
+      ? `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`
+      : `https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`);
 
   return (
     <div

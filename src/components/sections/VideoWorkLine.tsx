@@ -96,7 +96,7 @@ export function VideoWorkLine() {
             {/* Filter and Scroll Navigation Controls */}
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               {/* Filter Tabs */}
-              <div className="flex items-center bg-[#24242C] p-1 rounded-full border border-white/15 font-mono-tech text-xs">
+              <div className="flex items-center bg-[#141418] p-1 rounded-full border border-white/15 font-mono-tech text-xs">
                 <button
                   onClick={() => setActiveFilter("all")}
                   className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
@@ -136,7 +136,7 @@ export function VideoWorkLine() {
                 <button
                   onClick={() => scroll("left")}
                   disabled={!canScrollLeft}
-                  className={`p-2.5 rounded-full border border-white/15 bg-[#282832] transition-all duration-200 ${
+                  className={`p-2.5 rounded-full border border-white/15 bg-[#17171C] transition-all duration-200 ${
                     canScrollLeft
                       ? "text-white hover:bg-white hover:text-black cursor-pointer shadow-lg"
                       : "text-neutral-600 opacity-40 cursor-not-allowed"
@@ -148,7 +148,7 @@ export function VideoWorkLine() {
                 <button
                   onClick={() => scroll("right")}
                   disabled={!canScrollRight}
-                  className={`p-2.5 rounded-full border border-white/15 bg-[#282832] transition-all duration-200 ${
+                  className={`p-2.5 rounded-full border border-white/15 bg-[#17171C] transition-all duration-200 ${
                     canScrollRight
                       ? "text-white hover:bg-[#C8FF00] hover:text-black cursor-pointer shadow-lg"
                       : "text-neutral-600 opacity-40 cursor-not-allowed"
@@ -166,13 +166,13 @@ export function VideoWorkLine() {
       {/* ── The Alternating Horizontal Line of Videos ── */}
       <div className="relative w-full">
         {/* Subtle Side Fade Gradients */}
-        <div className="absolute left-0 inset-y-0 w-8 sm:w-16 bg-gradient-to-r from-[#1E1E22] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 inset-y-0 w-8 sm:w-16 bg-gradient-to-l from-[#1E1E22] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 inset-y-0 w-8 sm:w-16 bg-gradient-to-r from-[#0E0E11] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 inset-y-0 w-8 sm:w-16 bg-gradient-to-l from-[#0E0E11] to-transparent z-10 pointer-events-none" />
 
         {/* Scrollable Container Track */}
         <div
           ref={scrollContainerRef}
-          className="flex flex-nowrap items-center gap-4 sm:gap-6 overflow-x-auto px-4 sm:px-8 py-4 no-scrollbar scroll-smooth h-[420px] sm:h-[480px] md:h-[500px]"
+          className="flex flex-nowrap items-center gap-4 sm:gap-6 overflow-x-auto px-4 sm:px-8 py-4 no-scrollbar scroll-smooth h-[390px] sm:h-[440px] md:h-[480px]"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {displayVideos.map((video, index) => {
@@ -182,8 +182,8 @@ export function VideoWorkLine() {
                 key={video.id}
                 className={`shrink-0 flex items-center justify-center ${
                   isReel
-                    ? "h-full aspect-[9/16]"
-                    : "h-[250px] sm:h-[290px] md:h-[320px] max-w-[88vw] aspect-[16/9]"
+                    ? "h-[330px] sm:h-[390px] md:h-[435px] aspect-[9/13]"
+                    : "h-[220px] sm:h-[280px] md:h-[330px] max-w-[88vw] aspect-[16/9]"
                 }`}
                 style={{ scrollSnapAlign: "start" }}
               >

@@ -29,7 +29,7 @@ export function ThanksSection() {
   };
 
   return (
-    <footer className="relative w-full bg-[#1E1E22] text-[#F5F5F0] pt-20 pb-0 overflow-hidden border-t-2 border-white/10 select-none flex flex-col justify-between">
+    <footer className="relative w-full bg-[#0E0E11] text-[#F5F5F0] pt-20 pb-0 overflow-hidden border-t-2 border-white/10 select-none flex flex-col justify-between">
       
       {/* Background Yellow Line Grid */}
       <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
@@ -178,7 +178,7 @@ export function ThanksSection() {
         >
           <div className="relative w-full h-full">
             <Image
-              src="/images/portrait/ashwan.png"
+              src="/images/portrait/ashwan-headphones.png"
               alt="Ashwan - Thank You for Visiting"
               fill
               sizes="(max-width: 768px) 320px, (max-width: 1200px) 450px, 500px"

@@ -41,7 +41,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative w-full bg-[#1E1E22] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
+    <section id="contact" className="relative w-full bg-[#0E0E11] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
       
       {/* Background Yellow Line Grid & Ambience */}
       <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
@@ -99,7 +99,7 @@ export function ContactSection() {
             </div>
 
             {/* Phone & WhatsApp Card */}
-            <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
+            <div className="p-6 rounded-3xl bg-[#17171C] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono-tech text-xs text-neutral-400 uppercase tracking-wider flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#C8FF00]" />
@@ -143,7 +143,7 @@ export function ContactSection() {
             </div>
 
             {/* Instagram Social Tile */}
-            <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
+            <div className="p-6 rounded-3xl bg-[#17171C] border border-white/10 hover:border-[#C8FF00]/40 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1 group shadow-xl relative overflow-hidden glossy-shine glossy-rim">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-mono-tech text-xs text-neutral-400 uppercase tracking-wider flex items-center gap-2">
                   <InstagramIcon className="w-4 h-4 text-[#FF6A00]" />
@@ -181,7 +181,7 @@ export function ContactSection() {
             </div>
 
             {/* Location Tile */}
-            <div className="p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-4 shadow-xl relative overflow-hidden glossy-shine glossy-rim group">
+            <div className="p-6 rounded-3xl bg-[#17171C] border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-4 shadow-xl relative overflow-hidden glossy-shine glossy-rim group">
               <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-[#C8FF00]">
                 <MapPin className="w-5 h-5" />
               </div>
@@ -200,7 +200,7 @@ export function ContactSection() {
           {/* Right Column: Interactive Direct Email Composer */}
           <div className="lg:col-span-7">
             <ScrollReveal direction="up" delay={0.26}>
-              <div className="p-8 sm:p-10 rounded-3xl bg-[#282832] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
+              <div className="p-8 sm:p-10 rounded-3xl bg-[#17171C] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
               <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
                 <span className="font-display text-2xl uppercase tracking-tight text-white">
                   Start a Commission

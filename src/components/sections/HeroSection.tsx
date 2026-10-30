@@ -104,7 +104,7 @@ export function HeroSection() {
 
       {/* Subtle Halftone & Grid Background Texture */}
       <div className="absolute inset-0 bg-halftone opacity-35 pointer-events-none" />
-      <div className="absolute inset-0 bg-grid-tech opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-tech opacity-10 pointer-events-none" />
 
       {/* Main Canvas Container */}
       <div className="relative max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-8 sm:pb-12 min-h-screen flex flex-col justify-between">
@@ -115,7 +115,7 @@ export function HeroSection() {
           {/* ======================================================== */}
           {/* LEFT COLUMN: Floating About Me Card & Education Card     */}
           {/* ======================================================== */}
-          <div className="lg:col-span-3 flex flex-col justify-between gap-6 z-20 order-2 lg:order-1">
+          <div className="lg:col-span-3 flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-col justify-between gap-6 z-20 order-2 lg:order-1">
             
             {/* CARD 1: "about me" Card with clean reveal entrance */}
             <motion.div
@@ -211,7 +211,7 @@ export function HeroSection() {
                 className="relative w-full bg-white/95 backdrop-blur-xl text-black rounded-2xl p-6 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.04)] border border-black/10 overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:shadow-[0_28px_65px_rgba(0,0,0,0.16)] hover:border-black/30 glossy-shine-light glossy-rim-light"
               >
                 {/* Subtle tech grid background on white card */}
-                <div className="absolute inset-0 bg-grid-tech opacity-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-grid-tech opacity-6 pointer-events-none" />
 
                 <div className="relative z-10 text-center flex flex-col items-center">
                   <span className="font-sans-editorial text-sm font-bold tracking-tight text-neutral-500">
@@ -242,32 +242,35 @@ export function HeroSection() {
           {/* ======================================================== */}
           {/* CENTER COLUMN: Central Portrait & Floating Annotations   */}
           {/* ======================================================== */}
-          <div className="lg:col-span-6 relative flex flex-col items-center justify-center min-h-[520px] sm:min-h-[600px] lg:min-h-[680px] z-10 order-1 lg:order-2">
-                       {/* Soft Ambient Radial Behind Subject */}
+          <div className="lg:col-span-6 relative flex flex-col items-center justify-center min-h-[560px] sm:min-h-[640px] lg:min-h-[700px] z-10 order-1 lg:order-2">
+            {/* Soft Ambient Radial Behind Subject */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.4 }}
-              className="absolute w-[360px] sm:w-[480px] h-[360px] sm:h-[480px] bg-neutral-300/50 rounded-full blur-[90px] pointer-events-none transform -translate-y-6"
+              className="absolute w-[400px] sm:w-[540px] h-[400px] sm:h-[540px] bg-neutral-300/40 rounded-full blur-[90px] pointer-events-none transform -translate-y-6"
             />
 
-            {/* Central Profile Portrait with smooth upward glide */}
-            <motion.div
-              style={{ x: portraitX, y: portraitY }}
-              initial={{ opacity: 0, scale: 0.9, y: 50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.95, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px] h-[480px] sm:h-[560px] md:h-[620px] flex items-center justify-center pointer-events-none"
-            >
-              <Image
-                src="/images/portrait/ashwan.png"
-                alt="Ashwan Jakkinapally — Creative Video Editor & Graphic Designer"
-                fill
-                priority
-                sizes="(max-width: 768px) 340px, (max-width: 1200px) 460px, 500px"
-                className="object-contain object-center drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)]"
-              />
-            </motion.div>
+            {/* Stage wrapper for Portrait and all attached floating HUD elements: guarantees identical relative positions on all screen sizes */}
+            <div className="relative w-full max-w-[370px] sm:max-w-[460px] md:max-w-[510px] lg:max-w-[530px] h-[550px] sm:h-[630px] md:h-[670px] lg:h-[690px] flex items-center justify-center">
+
+              {/* Central Profile Portrait — zero gap between image and dock bar */}
+              <motion.div
+                style={{ x: portraitX, y: portraitY }}
+                initial={{ opacity: 0, scale: 0.9, y: 50 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.95, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-x-0 top-0 bottom-2 sm:bottom-3 md:bottom-4 flex items-center justify-center pointer-events-none z-10"
+              >
+                <Image
+                  src="/images/portrait/ashwan-headphones.png"
+                  alt="Ashwan Jakkinapally — Creative Video Editor & Graphic Designer"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 380px, (max-width: 1200px) 500px, 560px"
+                  className="object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)]"
+                />
+              </motion.div>
 
             {/* =================================================== */}
             {/* FLOATING HUD OVERLAYS WITH CLEAN REVEAL TRANSITIONS */}
@@ -279,7 +282,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: -25, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.85, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute top-[8%] sm:top-[6%] z-30 pointer-events-auto"
+              className="absolute top-[1%] sm:top-[0.5%] left-1/2 -translate-x-1/2 z-30 pointer-events-auto whitespace-nowrap"
             >
               <motion.div
                 animate={{ y: [0, -6, 0] }}
@@ -312,7 +315,7 @@ export function HeroSection() {
               initial={{ opacity: 0, x: -30, scale: 0.8 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute top-[22%] sm:top-[20%] left-2 sm:left-6 lg:left-2 z-30 pointer-events-auto"
+              className="absolute top-[15%] sm:top-[14%] -left-1 sm:-left-3 md:-left-5 z-30 pointer-events-auto whitespace-nowrap"
             >
               <motion.div
                 animate={{ y: [0, -7, 0], x: [0, 3, 0] }}
@@ -333,13 +336,13 @@ export function HeroSection() {
               </motion.div>
             </motion.div>
 
-            {/* 3. Camera Autofocus Viewfinder Box (Subject Face Focus) */}
+            {/* 3. Camera Autofocus Viewfinder Box (Subject Face Focus - Moved Upward on Eyes) */}
             <motion.div
               style={{ x: portraitX, y: portraitY }}
               initial={{ opacity: 0, scale: 0.4 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.0, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute top-[25%] sm:top-[24%] left-[36%] sm:left-[38%] z-20 pointer-events-none"
+              className="absolute top-[11%] sm:top-[10%] md:top-[11%] left-[34%] sm:left-[36%] z-20 pointer-events-none"
             >
               <motion.div
                 animate={{ y: [0, -5, 0], x: [0, 2, 0] }}
@@ -347,7 +350,7 @@ export function HeroSection() {
               >
                 <div
                   title="Autofocus view"
-                  className="relative w-20 sm:w-24 h-14 sm:h-16 border-2 border-amber-500/90 rounded-sm bg-amber-500/10 shadow-[0_0_20px_rgba(245,158,11,0.25)] backdrop-blur-[1px] pointer-events-auto cursor-pointer hover:bg-amber-500/20 active:scale-95 transition-all"
+                  className="relative w-20 sm:w-24 h-14 sm:h-16 border-2 border-amber-500/90 rounded-xl bg-amber-500/10 shadow-[0_0_20px_rgba(245,158,11,0.25)] backdrop-blur-[1px] pointer-events-auto cursor-pointer hover:bg-amber-500/20 active:scale-95 transition-all"
                 >
                   {/* Yellow sun slider control on the right edge */}
                   <div className="absolute -right-3 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
@@ -363,7 +366,7 @@ export function HeroSection() {
               initial={{ opacity: 0, x: 30, scale: 0.8 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.95, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute top-[24%] sm:top-[22%] right-2 sm:right-6 lg:right-2 z-30 pointer-events-auto"
+              className="absolute top-[15%] sm:top-[14%] -right-1 sm:-right-3 md:-right-5 z-30 pointer-events-auto whitespace-nowrap"
             >
               <motion.div
                 animate={{ y: [0, -8, 0] }}
@@ -418,7 +421,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 25, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.05, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute bottom-[24%] sm:bottom-[22%] right-1 sm:right-6 lg:right-4 z-30 pointer-events-auto"
+              className="absolute bottom-[23%] sm:bottom-[21%] -right-1 sm:right-1 md:right-2 z-30 pointer-events-auto whitespace-nowrap"
             >
               <motion.div
                 animate={{ y: [0, 8, 0], x: [0, -3, 0] }}
@@ -445,7 +448,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 35, scale: 0.85 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.65, delay: 1.1, ease: [0.34, 1.56, 0.64, 1] }}
-                className="absolute bottom-[11%] sm:bottom-[10%] z-30 pointer-events-auto"
+                className="absolute bottom-[13%] sm:bottom-[12%] left-1/2 -translate-x-1/2 z-30 pointer-events-auto whitespace-nowrap"
               >
                 <motion.div
                   animate={{
@@ -465,7 +468,7 @@ export function HeroSection() {
                     {/* Avatar Thumbnail */}
                     <div className="relative w-7 h-7 rounded-full overflow-hidden bg-neutral-100 border border-black/15 shrink-0 shadow-inner z-10">
                       <Image
-                        src="/images/portrait/ashwan.png"
+                        src="/images/portrait/ashwan-headphones.png"
                         alt="Ashwan"
                         fill
                         className="object-cover object-top"
@@ -516,12 +519,12 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 40, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -bottom-2 sm:bottom-0 z-30 pointer-events-auto"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 pointer-events-auto w-auto max-w-[98%]"
             >
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 5.0, ease: "easeInOut", repeat: Infinity }}
-                className="flex flex-col items-end"
+                className="flex flex-col items-center"
               >
                 {/* Tooltip Badge above Dock with reveal */}
                 {dockTooltip && (
@@ -761,12 +764,14 @@ export function HeroSection() {
               </motion.div>
             </motion.div>
 
+            </div>
+
           </div>
 
           {/* ======================================================== */}
           {/* RIGHT COLUMN: Floating Work Experience & Approach Cards  */}
           {/* ======================================================== */}
-          <div className="lg:col-span-3 flex flex-col justify-between gap-6 z-20 order-3">
+          <div className="lg:col-span-3 flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-col justify-between gap-6 z-20 order-3">
             
             {/* CARD 3: "Work Experience" Card with clean reveal entrance */}
             <motion.div

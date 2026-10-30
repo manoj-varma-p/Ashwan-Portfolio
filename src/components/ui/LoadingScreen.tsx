@@ -46,7 +46,7 @@ export function LoadingScreen() {
             y: -25,
             transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] }
           }}
-          className="fixed inset-0 z-[99999] bg-[#1E1E22] text-[#F5F5F0] flex flex-col items-center justify-center p-6 select-none"
+          className="fixed inset-0 z-[99999] bg-[#0E0E11] text-[#F5F5F0] flex flex-col items-center justify-center p-6 select-none"
         >
           {/* Subtle background tech grid */}
           <div className="absolute inset-0 bg-grid-tech opacity-10 pointer-events-none" />
@@ -58,7 +58,7 @@ export function LoadingScreen() {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.4 }}
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#282832] border border-white/15 flex items-center justify-center shadow-2xl relative overflow-hidden group"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#17171C] border border-white/15 flex items-center justify-center shadow-2xl relative overflow-hidden group"
             >
               <span className="font-display text-3xl sm:text-4xl font-black tracking-tight text-[#C8FF00]">
                 AJ

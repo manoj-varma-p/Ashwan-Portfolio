@@ -3,12 +3,77 @@
 import React, { useState } from "react";
 import { PROFILE_DATA } from "@/data/profile";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
+import { TypewriterText } from "@/components/ui/TypewriterText";
+
+function ToolCard({
+  tool,
+  index,
+}: {
+  tool: (typeof PROFILE_DATA.tools)[0];
+  index: number;
+}) {
+  const cardDelay = index * 90;
+  const titleDelay = 120 + cardDelay;
+  const descDelay = 320 + cardDelay;
+
+  return (
+    <div className="h-full p-6 rounded-3xl bg-[#17171C] border border-white/10 hover:border-white/30 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1.5 group flex flex-col justify-between shadow-xl relative overflow-hidden glossy-shine glossy-rim">
+      <div>
+        <div className="flex items-center justify-between mb-6">
+          {/* Stylized Adobe / Tool Monogram Icon */}
+          <div
+            className="w-14 h-14 rounded-2xl flex items-center justify-center font-display font-black text-2xl border border-white/15 shadow-md transition-all duration-300 ease-out group-hover:scale-110"
+            style={{
+              backgroundColor: "#202026",
+              color: tool.accent,
+            }}
+          >
+            {tool.shortName}
+          </div>
+
+          {/* Standout Pure White Badge */}
+          <span className="font-mono-tech text-[10px] text-black bg-white px-2.5 py-1 rounded-full font-extrabold shadow-sm">
+            {tool.category}
+          </span>
+        </div>
+
+        {/* Title with Typewriter Reveal Effect */}
+        <h3 className="font-display text-2xl font-bold uppercase text-white group-hover:text-[#C8FF00] transition-colors duration-200 min-h-[32px] flex items-center">
+          <TypewriterText
+            text={tool.name}
+            delay={titleDelay}
+            speed={22}
+            cursorColor={tool.accent || "#C8FF00"}
+          />
+        </h3>
+
+        {/* Description with Typewriter Reveal Effect */}
+        <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-sans-editorial min-h-[46px]">
+          <TypewriterText
+            text={tool.description}
+            delay={descDelay}
+            speed={13}
+            cursorColor="#C8FF00"
+          />
+        </p>
+      </div>
+
+      <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between font-mono-tech text-[10px] text-neutral-500 font-semibold">
+        <span className="flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          SUITE READY
+        </span>
+        <span className="text-white font-bold">PROFESSIONAL</span>
+      </div>
+    </div>
+  );
+}
 
 export function ToolsSection() {
   const [activePipelineStep, setActivePipelineStep] = useState(2);
 
   return (
-    <section id="tools" className="relative w-full bg-[#1E1E22] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
+    <section id="tools" className="relative w-full bg-[#0E0E11] text-[#F5F5F0] py-28 px-4 sm:px-6 lg:px-8 border-t border-white/10 overflow-hidden">
 
       {/* Background Yellow Line Grid */}
       <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
@@ -28,7 +93,7 @@ export function ToolsSection() {
           </div>
         </ScrollReveal>
 
-        {/* Software Suite Cards Grid */}
+        {/* Software Suite Cards Grid with Scroll-Triggered Typing Effect */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 items-stretch">
           {PROFILE_DATA.tools.map((tool, idx) => (
             <ScrollReveal
@@ -38,46 +103,14 @@ export function ToolsSection() {
               distance={28}
               className="h-full"
             >
-              <div className="h-full p-6 rounded-3xl bg-[#282832] border border-white/10 hover:border-white/30 transition-all duration-300 ease-out hover:shadow-2xl hover:-translate-y-1.5 group flex flex-col justify-between shadow-xl relative overflow-hidden glossy-shine glossy-rim">
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    {/* Stylized Adobe / Tool Monogram Icon */}
-                    <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center font-display font-black text-2xl border border-white/15 shadow-md transition-all duration-300 ease-out group-hover:scale-110"
-                      style={{
-                        backgroundColor: "#202026",
-                        color: tool.accent,
-                      }}
-                    >
-                      {tool.shortName}
-                    </div>
-
-                    {/* Standout Pure White Badge */}
-                    <span className="font-mono-tech text-[10px] text-black bg-white px-2.5 py-1 rounded-full font-extrabold shadow-sm">
-                      {tool.category}
-                    </span>
-                  </div>
-
-                  <h3 className="font-display text-2xl font-bold uppercase text-white group-hover:text-[#C8FF00] transition-colors duration-200">
-                    {tool.name}
-                  </h3>
-                  <p className="text-xs text-neutral-400 mt-2 leading-relaxed font-sans-editorial">
-                    {tool.description}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between font-mono-tech text-[10px] text-neutral-500 font-semibold">
-                  <span>SUITE READY</span>
-                  <span className="text-white font-bold">PROFESSIONAL</span>
-                </div>
-              </div>
+              <ToolCard tool={tool} index={idx} />
             </ScrollReveal>
           ))}
         </div>
 
         {/* Creative Workflow Pipeline Timeline */}
         <ScrollReveal direction="up" delay={0.2}>
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#282832] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#17171C] border border-white/10 shadow-2xl relative overflow-hidden glossy-shine glossy-rim group">
 
             <div className="text-center max-w-2xl mx-auto mb-10 pb-6 border-b border-white/10">
               <span className="font-mono-tech text-xs text-[#FF6A00] tracking-widest uppercase font-bold block mb-1">
@@ -93,7 +126,7 @@ export function ToolsSection() {
             </div>
 
             {/* Sequential Step Cards with Standout White Active Step */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 items-stretch">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3 items-stretch">
               {PROFILE_DATA.workflowPipeline.map((step, index) => {
                 const isCurrent = index === activePipelineStep;
 
@@ -101,12 +134,12 @@ export function ToolsSection() {
                   <button
                     key={step.step}
                     onClick={() => setActivePipelineStep(index)}
-                    className={`p-4 rounded-2xl text-left transition-all duration-300 ease-out border flex flex-col justify-between min-h-[175px] cursor-pointer relative overflow-hidden group ${isCurrent
+                    className={`p-3 sm:p-3.5 lg:p-3 xl:p-4 rounded-2xl text-left transition-all duration-300 ease-out border flex flex-col justify-between min-h-[165px] sm:min-h-[175px] cursor-pointer relative overflow-hidden group ${isCurrent
                         ? "z-10 bg-white text-black border-2 border-white shadow-[0_15px_30px_rgba(255,255,255,0.2)] scale-[1.04] glossy-shine-light glossy-rim-light"
-                        : "bg-[#22222A] text-neutral-300 border-white/10 hover:border-white/30 hover:-translate-y-0.5 glossy-shine glossy-rim"
+                        : "bg-[#121217] text-neutral-300 border-white/10 hover:border-white/30 hover:-translate-y-0.5 glossy-shine glossy-rim"
                       }`}
                   >
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
                       <span
                         className={`font-mono-tech text-xs font-black transition-colors duration-200 ${isCurrent ? "text-black" : "text-[#C8FF00]"
                           }`}
@@ -121,9 +154,9 @@ export function ToolsSection() {
                       </span>
                     </div>
 
-                    <div>
+                    <div className="w-full min-w-0">
                       <h4
-                        className={`font-display text-xl sm:text-2xl font-black uppercase tracking-tight transition-colors duration-200 ${isCurrent ? "text-black" : "text-white"
+                        className={`font-display text-sm sm:text-base lg:text-sm xl:text-base 2xl:text-lg font-black uppercase tracking-tight transition-colors duration-200 leading-tight break-words ${isCurrent ? "text-black" : "text-white"
                           }`}
                       >
                         {step.label}

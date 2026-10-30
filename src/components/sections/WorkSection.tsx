@@ -34,10 +34,10 @@ export function WorkSection() {
   return (
     <section
       id="work"
-      className="relative w-full bg-[#1E1E22] text-[#F5F5F0] pt-12 pb-24 border-t border-white/10 overflow-hidden"
+      className="relative w-full bg-[#0E0E11] text-[#F5F5F0] pt-12 pb-24 border-t border-white/10 overflow-hidden"
     >
-      {/* Background Yellow Line Grid */}
-      <div className="absolute inset-0 bg-grid-yellow pointer-events-none" />
+      {/* Background Yellow Line Grid - softened */}
+      <div className="absolute inset-0 bg-grid-yellow opacity-40 pointer-events-none" />
       {/* ── Top Infinite Ticker Banner in Signature Acid Yellow (Continuously Scrolling) ── */}
       <div className="w-full mb-12 sm:mb-16 border-y-2 border-black bg-[#C8FF00] py-3.5 relative overflow-hidden select-none shadow-sm text-black font-bold">
         <div className="animate-marquee-infinite">
@@ -109,7 +109,7 @@ export function WorkSection() {
           </p>
 
           {/* Master Media View Switcher */}
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-full bg-[#24242C] border border-white/15 font-mono-tech text-xs shadow-xl">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-full bg-[#141418] border border-white/15 font-mono-tech text-xs shadow-xl">
             <button
               onClick={() => setMediaType("all")}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full transition-all duration-200 cursor-pointer ${
@@ -173,7 +173,7 @@ export function WorkSection() {
               </div>
 
               {/* Density switcher with white active indicator */}
-              <div className="flex items-center bg-[#24242C] p-1 rounded-full border border-white/15 font-mono-tech text-xs shadow-lg">
+              <div className="flex items-center bg-[#141418] p-1 rounded-full border border-white/15 font-mono-tech text-xs shadow-lg">
                 <button
                   onClick={() => {
                     setGridDensity("dense");
@@ -226,7 +226,7 @@ export function WorkSection() {
                   className={`px-4 py-2 rounded-full font-mono-tech text-xs whitespace-nowrap uppercase tracking-wider transition-all duration-200 flex items-center gap-2 hover:scale-105 active:scale-95 ${
                     isActive
                       ? "bg-[#C8FF00] text-black font-black shadow-lg"
-                      : "bg-[#282832] text-neutral-300 hover:text-white hover:bg-white/10 border border-white/10"
+                      : "bg-[#17171C] text-neutral-300 hover:text-white hover:bg-white/10 border border-white/10"
                   }`}
                 >
                   <span>{cat}</span>
@@ -248,12 +248,13 @@ export function WorkSection() {
           layout
           className={
             gridDensity === "dense"
-              ? "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5"
-              : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
+              ? "grid grid-flow-dense items-start grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5"
+              : "grid grid-flow-dense items-start grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8"
           }
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => {
+              const isLandscape = project.aspect === "landscape";
               return (
                 <motion.div
                   key={project.id}
@@ -266,7 +267,11 @@ export function WorkSection() {
                     setActiveProject(project);
                   }}
                   data-cursor="view"
-                  className="group relative aspect-[3/4] rounded-none overflow-hidden bg-[#282832] border border-white/15 hover:border-[#C8FF00] hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:-translate-y-1.5 transition-all duration-300 ease-out select-none cursor-pointer"
+                  className={`group relative rounded-none overflow-hidden bg-[#17171C] border border-white/10 hover:border-[#C8FF00] hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:-translate-y-1.5 transition-all duration-300 ease-out select-none cursor-pointer w-full ${
+                    isLandscape
+                      ? "col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-2 xl:col-span-2 aspect-[16/9]"
+                      : "aspect-[3/4]"
+                  }`}
                 >
                   {/* Poster Image */}
                   <Image
@@ -274,7 +279,11 @@ export function WorkSection() {
                     alt={project.title}
                     fill
                     unoptimized={project.coverImage.startsWith("http")}
-                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    sizes={
+                      isLandscape
+                        ? "(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
+                        : "(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    }
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
