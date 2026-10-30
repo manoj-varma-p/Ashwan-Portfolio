@@ -360,13 +360,13 @@ export function HeroSection() {
               </motion.div>
             </motion.div>
 
-            {/* 4. Name Tag & "Who's this?" (Right of Head) */}
+            {/* 4. Name Tag & "Who's this?" (Right of Face / Neck) */}
             <motion.div
               style={{ x: floatingBadgesX, y: floatingBadgesY }}
               initial={{ opacity: 0, x: 30, scale: 0.8 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.95, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute top-[15%] sm:top-[14%] -right-1 sm:-right-3 md:-right-5 z-30 pointer-events-auto whitespace-nowrap"
+              className="absolute top-[24%] sm:top-[23%] md:top-[24%] -right-1 sm:-right-3 md:-right-5 z-30 pointer-events-auto whitespace-nowrap"
             >
               <motion.div
                 animate={{ y: [0, -8, 0] }}
