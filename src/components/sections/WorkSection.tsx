@@ -17,6 +17,7 @@ import {
 import { ProjectOverlay } from "@/components/projects/ProjectOverlay";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { VideoWorkLine } from "@/components/sections/VideoWorkLine";
+import { ColorGradeSlider } from "@/components/ui/ColorGradeSlider";
 import { VIDEOS } from "@/data/videos";
 import { Film, Image as ImageIcon, Sparkles } from "lucide-react";
 
@@ -149,8 +150,19 @@ export function WorkSection() {
         </ScrollReveal>
       </div>
 
-      {/* ── 03.1 Video Showcase ── */}
-      {(mediaType === "all" || mediaType === "videos") && <VideoWorkLine />}
+      {/* ── 03.1 Video Showcase & Color Grading Lab ── */}
+      {(mediaType === "all" || mediaType === "videos") && (
+        <>
+          <VideoWorkLine />
+
+          {/* Interactive Before / After Color Grade Showcase */}
+          <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 pt-10 border-t border-white/10">
+            <ScrollReveal direction="up" delay={0.1}>
+              <ColorGradeSlider />
+            </ScrollReveal>
+          </div>
+        </>
+      )}
 
       {(mediaType === "all" || mediaType === "images") && (
       <div className="max-w-[1680px] mx-auto px-3 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-white/10">
