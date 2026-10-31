@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 import { PROFILE_DATA } from "@/data/profile";
@@ -93,15 +94,19 @@ export function Navbar() {
               className="group flex items-center gap-3 cursor-pointer select-none"
             >
               <div
-                className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 ease-out overflow-hidden ${
+                className={`relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all duration-300 ease-out overflow-hidden shadow-md shrink-0 ${
                   isScrolled
                     ? "bg-black border border-white/20 group-hover:border-[#C8FF00] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(200,255,0,0.4)]"
-                    : "bg-black border-2 border-black text-[#C8FF00] shadow-md group-hover:scale-105"
+                    : "bg-black border-2 border-black group-hover:scale-105"
                 }`}
               >
-                <span className="text-[#C8FF00] font-display font-black text-sm sm:text-base tracking-tight transition-transform duration-300 group-hover:scale-110">
-                  AJ
-                </span>
+                <Image
+                  src="/images/logo/ashwan-logo.jpg"
+                  alt="Ashwan"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
@@ -278,8 +283,15 @@ export function Navbar() {
               transition={{ delay: 0.1 }}
               className="flex items-center justify-between pb-4 border-b border-white/10"
             >
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#C8FF00] animate-pulse" />
+              <div className="flex items-center gap-2.5">
+                <div className="relative w-7 h-7 rounded-lg overflow-hidden border border-white/20 shrink-0">
+                  <Image
+                    src="/images/logo/ashwan-logo.jpg"
+                    alt="Ashwan"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <span className="font-mono-tech text-xs text-neutral-400 uppercase tracking-widest font-bold">
                   {PROFILE_DATA.location.full}
                 </span>

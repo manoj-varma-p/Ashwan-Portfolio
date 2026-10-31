@@ -115,7 +115,14 @@ export function ThanksSection() {
         {/* Editorial Credits & Back To Top Navigation Line */}
         <div className="w-full mt-8 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono-tech text-neutral-400">
           <div className="flex items-center gap-3">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#C8FF00]" />
+            <div className="relative w-6 h-6 rounded-md overflow-hidden border border-white/20 shrink-0 shadow-sm">
+              <Image
+                src="/images/logo/ashwan-logo.jpg"
+                alt="Ashwan"
+                fill
+                className="object-cover"
+              />
+            </div>
             <span className="text-white uppercase font-bold tracking-wider">
               ASHWAN JAKKINAPALLY
             </span>
