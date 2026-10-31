@@ -137,13 +137,13 @@ export function VideoCard({
 
               {/* Button circle */}
               <div
-                className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 ease-out group-hover:scale-110 ${
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 ease-out group-hover:scale-110 ${
                   isReel
                     ? "bg-[#C8FF00] text-black group-hover:bg-white"
                     : "bg-white text-black group-hover:bg-[#C8FF00]"
                 }`}
               >
-                <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-current translate-x-0.5" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current translate-x-0.5" />
               </div>
             </div>
           </div>
