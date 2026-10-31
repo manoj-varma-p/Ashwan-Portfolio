@@ -116,7 +116,7 @@ export function AboutSection() {
                   <span className="bg-[#C8FF00] text-black px-1.5 py-0.5 rounded font-black">
                     VIDEO EDITOR
                   </span>{" "}
-                  and graphic designer with hands-on experience in editing,{" "}
+                  and graphic designer with 2 years of hands-on experience in editing,{" "}
                   <span className="text-white underline decoration-[#C8FF00] decoration-4 underline-offset-4 font-bold">
                     MOTION GRAPHICS
                   </span>

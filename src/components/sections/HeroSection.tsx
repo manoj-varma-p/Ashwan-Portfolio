@@ -152,7 +152,7 @@ export function HeroSection() {
 
                   {/* Editorial Bio Paragraph */}
                   <p className="text-xs sm:text-[13px] text-[#52525B] leading-relaxed font-sans-editorial">
-                    For over 3 years, I&apos;ve been working in the creative industry, exploring and developing my skills in Video Editing, Motion Graphics, Visual Storytelling, Graphic Design, and Color Grading. I enjoy creating visuals that not only look good, but also carry meaning and intention behind every detail.
+                    For over 2 years, I&apos;ve been working in the creative industry, exploring and developing my skills in Video Editing, Motion Graphics, Visual Storytelling, Graphic Design, and Color Grading. I enjoy creating visuals that not only look good, but also carry meaning and intention behind every detail.
                   </p>
                 </div>
 

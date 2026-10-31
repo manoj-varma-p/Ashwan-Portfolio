@@ -66,7 +66,7 @@ export const PROFILE_DATA = {
     short:
       "Passionate video editor and graphic designer specializing in high-impact motion, narrative rhythm, and aesthetic visual identity.",
     editorial:
-      "I’m Ashwan, a passionate video editor and graphic designer with hands-on experience in editing, motion graphics, and visual storytelling. Skilled in Premiere Pro, After Effects, and Photoshop, I focus on creating clean, compelling visuals that communicate through strong storytelling, thoughtful composition, and precise editing.",
+      "I’m Ashwan, a passionate video editor and graphic designer with 2 years of hands-on experience in editing, motion graphics, and visual storytelling. Skilled in Premiere Pro, After Effects, and Photoshop, I focus on creating clean, compelling visuals that communicate through strong storytelling, thoughtful composition, and precise editing.",
   },
   experiences: [
     {
