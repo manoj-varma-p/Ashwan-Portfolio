@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 
 export function LoadingScreen() {
@@ -53,17 +54,21 @@ export function LoadingScreen() {
           <div className="absolute inset-0 bg-halftone-subtle opacity-15 pointer-events-none" />
 
           <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-7 max-w-3xl w-full text-center px-4">
-            {/* Minimalist Monogram Badge */}
+            {/* Minimalist Brand Logo Badge */}
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.4 }}
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#17171C] border border-white/15 flex items-center justify-center shadow-2xl relative overflow-hidden group"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-[#17171C] border border-white/20 flex items-center justify-center shadow-2xl relative overflow-hidden group"
             >
-              <span className="font-display text-3xl sm:text-4xl font-black tracking-tight text-[#C8FF00]">
-                AJ
-              </span>
-              <div className="absolute inset-x-0 bottom-0 h-1 sm:h-1.5 bg-[#C8FF00]" />
+              <Image
+                src="/images/logo/ashwan-logo.jpg"
+                alt="Ashwan"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-x-0 bottom-0 h-1 sm:h-1.5 bg-[#C8FF00] z-10" />
             </motion.div>
 
             {/* Name & Title */}
